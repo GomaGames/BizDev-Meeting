@@ -153,7 +153,7 @@ Template.lobby.events({
 
     var game = getCurrentGame();
     var players = Players.find({gameID: game._id});
-
+    Session.set('currentView','gameView');
   },
   'click .btn-remove-player': function (event) {
     var playerID = $(event.currentTarget).data('player-id');
@@ -206,3 +206,10 @@ function getCurrentPlayer(){
     return Players.findOne(playerID);
   }
 }
+
+Template.gameView.events({
+  'click .btn-back': function () {
+    Session.set("currentView", "startMenu");
+    return false;
+  }
+});
