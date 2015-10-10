@@ -33,10 +33,34 @@
 
 
 <template name="createMeeting">
-  <h3>Create Meeting</h3>
+  <h4>
+    {{#if isLoading }}
+    <span class="spinner"></span>
+    {{else}}
+    Call a meeting
+    {{/if}}
+  </h4>
+
+  <hr>
+
+  <form id="create-meeting">
+    <div class="">
+      <input type="text" id="player-name" name="playerName" placeholder='What&apos;s your name?'>
+
+      <div class="button-container">
+        <input type="submit" value='Enter conference room'>
+        <button class="btn-back">Cancel Meeting</button>
+      </div>
+    </div>
+  </form>
 </template>
 
 
 <template name="joinMeeting">
   <h3>Join Meeting</h3>
+</template>
+
+
+<template name="lobby">
+  <h3>Lobby</h3>
 </template>
