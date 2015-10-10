@@ -2,11 +2,11 @@
 //testing out http://webdesign.tutsplus.com/tutorials/a-simple-responsive-grid-made-even-better-with-sass--cms-21540
 
 // Grid Variables
-$grid-columns: 2;
-$grid-max-width: 65em;
+$grid-columns: 4;
+$grid-max-width: 40em;
 
 // Breakpoints
-$breakpoint-small: "only screen and (min-width: 20em)";
+// $breakpoint-small: "only screen and (min-width: 20em)";
 $breakpoint-medium: "only screen and (min-width: 30em)";
 
 // Mixins
