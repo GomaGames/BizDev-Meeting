@@ -10,6 +10,9 @@ Template.startMenu.events({
   },
   'click #btn-join-meeting': function () {
     Session.set("currentView", "joinMeeting");
+  },
+  'click .btn-to-home': function () {
+    Session.set("currentView", "startMenu");
   }
 });
 
@@ -106,7 +109,12 @@ function generateNewPlayer(game, name){
   return Players.findOne(playerID);
 }
 
-
+Template.joinMeeting.events({
+  'click .btn-back': function () {
+    Session.set("currentView", "startMenu");
+    return false;
+  }
+});
 
 
 Template.lobby.helpers({
