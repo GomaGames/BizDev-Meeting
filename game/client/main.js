@@ -3,4 +3,3 @@ Template.main.helpers({
     return Session.get('currentView');
   }
 });
-

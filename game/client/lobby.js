@@ -34,7 +34,7 @@ Template.lobby.events({
 
     var game = getCurrentGame();
     var players = Players.find({gameID: game._id});
-
+    Session.set("currentView", "gameView");
   },
   'click .btn-remove-player': function (event) {
     var playerID = $(event.currentTarget).data('player-id');
