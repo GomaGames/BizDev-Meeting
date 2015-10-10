@@ -3,7 +3,7 @@
   <title>BizDev Meeting</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body></body>
@@ -18,19 +18,18 @@
 </template>
 
 <template name="startMenu">
-  <div class="main-menu wrapper">
+  <div class="main-menu">
     <h4>Welcome to BizDev Meeting</h4>
-
-    <hr>
-
     <div class="button-container row">
-      <button id="btn-new-meeting" class="column-1">Call Meeting</button>
-      <button id="btn-join-meeting" class="column-1">Join Meeting</button>
+      <div class="column-2">
+        <button id="btn-new-meeting">Call Meeting</button>      
+      </div>
+      <div class="column-2">
+        <button id="btn-join-meeting">Join Meeting</button>        
+      </div>
     </div>
-
   </div>
 </template>
-
 
 <template name="createMeeting">
   <h4>
@@ -40,20 +39,16 @@
     Call a meeting
     {{/if}}
   </h4>
-
-  <hr>
-
   <form id="create-meeting">
-    <div class="">
-      <input type="text" id="player-name" name="playerName" placeholder='What&apos;s your name?'>
+    <div class="row">
+      <input type="text" id="player-name" name="playerName" placeholder='What&apos;s your name?' class="column-3">
 
-      <div class="button-container">
+      <div class="button-container column-1">
         <input type="submit" value='Enter conference room'>
-        <button class="btn-back">Cancel Meeting</button>
       </div>
+      <button class="btn-back">Cancel Meeting</button>
     </div>
   </form>
-
 </template>
 
 
@@ -85,13 +80,13 @@
 
 
 <template name="lobby">
-  <h3>Waiting for people to join</h3>
-
   <div class="access-code">
-    Meeting room:
-    <span>{{ game.accessCode }}</span>
+    <h4>
+      Meeting room:
+      <span>{{ game.accessCode }}</span>
+    </h4>
   </div>
-
+  <p>Waiting for people to join</p>
   <div class="access-buttons">
 
     <span class="access-button-separator"></span>
