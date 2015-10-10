@@ -1,0 +1,41 @@
+<template name="lobby">
+  <h3>Waiting for people to join</h3>
+
+  <div class="access-code">
+    Meeting room:
+    <span>{{ game.accessCode }}</span>
+  </div>
+
+  <div class="access-buttons">
+
+    <span class="access-button-separator"></span>
+
+  </div>
+
+  <hr>
+
+  <ol class="lobby-player-list">
+    {{#each players }}
+      <li>
+        {{ name }}
+
+        {{#if isCurrent }}
+          <a href="#" class="btn-edit-player" data-player-id="{{ _id }}">
+            <i class="fa fa-pencil"></i>
+          </a>
+        {{else}}
+          <a href="#" class="btn-remove-player" data-player-id="{{ _id }}">
+            <i class="fa fa-close"></i>
+          </a>
+        {{/if}}
+      </li>
+    {{/each}}
+  </ol>
+
+  <hr>
+
+  <div class="button-container">
+    <button class="btn-start">Start Meeting</button>
+    <button class="btn-leave">Leave Meeting</button>
+  </div>
+</template>

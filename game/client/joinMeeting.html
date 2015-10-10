@@ -1,0 +1,25 @@
+<template name="joinMeeting">
+  <h4>
+    {{#if isLoading }}
+      <span class="spinner"></span>
+    {{else}}
+      Welcome to BizDev Meeting
+    {{/if}}
+  </h4>
+
+  <hr>
+
+  <form id="join-meeting">
+    <div>
+      <input autocorrect="off" autocapitalize="off" type="text" id="access-code" name="accessCode" placeholder='Meeting Room Code'>
+      <input type="text" id="player-name" name="playerName" placeholder='Your Name'>
+
+      {{> flashMessages}}
+
+      <div class="button-container">
+        <input type="submit" value='Join Meeting'>
+  <button class="btn-back">Cancel Meeting</button>
+      </div>
+    </div>
+  </form>
+</template>
