@@ -23,14 +23,24 @@ Template.gameView.created = function( event ) {
 
 Template.gameView.rendered = function( event ) {
   var timeRemaining = getTimeRemaining();
-
-  Meteor.setTimeout(function () {
-    Session.set('currentView', 'gameOver');
-  }, timeRemaining + 100 );
 };
 
 Meteor.setInterval(function () {
   Session.set('time', new Date());
+  var game = getCurrentGame();
+  if( game != null ){
+    var timeRemaining = getTimeRemaining();
+
+    if( timeRemaining <= 0 && game.startTime != null ){
+      gameOver();
+    };
+    if( game.progress >= game.goal && game.goal != null ){
+      Games.update(game._id, { $set: { result: true }});
+      Session.set('time', null);
+      gameOver();
+    };
+  }
+
 }, 1000);
 
 
@@ -38,6 +48,13 @@ Template.gameView.events({
   'click .btn-back': function () {
     resetUserState();
     Session.set("currentView", "startMenu");
+    return false;
+  },
+  'click #btn-progression': function () {
+    var game = getCurrentGame();
+    console.log('goal',game.goal);
+    Games.update(game._id, { $set: { progress: game.progress+1 }});
+
     return false;
   }
 });
@@ -59,12 +76,12 @@ Template.gameView.helpers({
   deadlineBar: function () {
     var deadlineBarValue = new ReactiveVar(0);
     var currentTime = getGameTimer();
-    console.log('timer',currentTime);
     var totalTime = getTotalTime();
-    console.log('totaltime',totalTime);
     var progress = Math.floor((currentTime / totalTime) * 100);
-    console.log('percent progressed',progress);
     deadlineBarValue.set(progress);
     return deadlineBarValue.get();
+  },
+  getProgress: function() {
+    return getProgress();
   }
 });

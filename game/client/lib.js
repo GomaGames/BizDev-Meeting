@@ -13,7 +13,7 @@ generateNewGame = function generateNewGame(){
   var game = {
     accessCode: generateAccessCode(),
     state: "waitingForPlayers",
-    lengthInMinutes: 1,
+    lengthInMinutes: 0.05,
     endTime: null,
     startTime: null,
     goal: null,
@@ -128,5 +128,13 @@ setGameGoal = function setGameGoal(){
   Games.update(game._id, { $set : { goal : players.reduce(function(p,c){
     return p + Math.round( (Math.random() * 10) + 10 );
   }, 0) }});
+};
 
+getProgress = function getProgress() {
+  var game = getCurrentGame();
+  return game.progress;
+};
+
+gameOver = function gameOver() {
+  Session.set('currentView', 'gameOver');
 };
