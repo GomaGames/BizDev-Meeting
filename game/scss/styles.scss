@@ -2,7 +2,7 @@
 @import "partials/grid";
 
 body{
-  font-family: "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "Ubuntu Mono", "Helvetica Neue", sans-serif;
 }
 
 .wrapper{
@@ -12,3 +12,6 @@ body{
 h1{
   font-size: 2rem;
 }
+
+@import "tiles/tile";
+

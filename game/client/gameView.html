@@ -4,4 +4,10 @@
   DEADLINE TIMER: {{ deadlineBar }} %
   {{#if gameFinished }}DONE SON{{/if}}
   <button class="btn-back">RAGE QUIT</button>
+
+  <div>
+    {{#each actionTiles}}
+      {{> Template.dynamic template=type}}
+    {{/each}}
+  </div>
 </template>
