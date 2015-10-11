@@ -1,4 +1,5 @@
 <template name="gameView">
+
   <div class="topbar">
     <h3>Meeting Room</h3>
     <button class="btn-back">&times;</button>
@@ -9,6 +10,8 @@
       {{ timeRemaining }}
       DEADLINE TIMER: {{ deadlineBar }} %
       {{#if gameFinished }}DONE SON{{/if}}
+
+      PROGRESS: {{ getProgress }}
     </div>
     <div class="assignment">
       assignment
@@ -19,5 +22,9 @@
         {{> Template.dynamic template=type}}
       {{/each}}
     </div>
+    <div class="temp">
+      <button id="btn-progression">EZ MODE PROGRESSION BUTTON</button>
+    </div>
   </div>
+  
 </template>
