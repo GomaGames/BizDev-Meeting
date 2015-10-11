@@ -1,3 +1,10 @@
+var actionTiles = JSON.parse(Assets.getText("actionTiles.json"));
+
+Meteor.methods({
+  getActionTiles : function(){
+    return actionTiles;
+  }
+});
 
 Meteor.startup(function () {
   // Delete all games and players at startup
