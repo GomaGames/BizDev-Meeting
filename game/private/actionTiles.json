@@ -224,5 +224,541 @@
         "label": "'Just Like Google'"
       }
     ]
+  },
+  {
+    "title": "CSS",
+    "instruction": "Increase the [label].",
+    "type": "button",
+    "options": [
+      {
+        "label": "opacity"
+      },
+      {
+        "label": "dropshadow"
+      },
+      {
+        "label": "font-size"
+      }
+    ]
+  },
+  {
+    "title": "Meeting",
+    "instruction": "[label] the meeting.",
+    "type": "button",
+    "options": [
+      {
+        "label": "Extend"
+      },
+      {
+        "label": "Cancel"
+      },
+      {
+        "label": "Postpone"
+      }
+    ]
+  },
+  {
+    "title": "Version Control",
+    "instruction": "Go back to version [label].",
+    "type": "slider",
+    "options": [
+      {
+        "label": "1"
+      },
+      {
+        "label": "2"
+      },
+      {
+        "label": "3"
+      }
+    ]
+  },
+  {
+    "title": "Send to Client",
+    "instruction": "Send it to the client [label].",
+    "type": "slider",
+    "options": [
+      {
+        "label": "ASAP"
+      },
+      {
+        "label": "Now"
+      },
+      {
+        "label": "Yesterday"
+      }
+    ]
+  },
+  {
+    "title": "ROI",
+    "instruction": "The ROI is [label].",
+    "type": "slider",
+    "options": [
+      {
+        "label": "Off the Charts"
+      },
+      {
+        "label": "Guaranteed"
+      },
+      {
+        "label": "A Sure Thing"
+      },
+      {
+        "label": "Fool-Proof"
+      }
+    ]
+  },
+  {
+    "title": "More Like",
+    "instruction": "Make it like [label], but better.",
+    "type": "button",
+    "options": [
+      {
+        "label": "Twitter"
+      },
+      {
+        "label": "Pinterest"
+      },
+      {
+        "label": "Facebook"
+      },
+      {
+        "label": "Yelp"
+      }
+    ]
+  },
+  {
+    "title": "Yelp for...",
+    "instruction": "It's like Yelp for [label].",
+    "type": "button",
+    "options": [
+      {
+        "label": "Cars"
+      },
+      {
+        "label": "Libraries"
+      },
+      {
+        "label": "Old People"
+      },
+      {
+        "label": "Baby-sitters"
+      }
+    ]
+  },
+  {
+    "title": "Uber for...",
+    "instruction": "It's like Uber for [label].",
+    "type": "button",
+    "options": [
+      {
+        "label": "Twitter"
+      },
+      {
+        "label": "eBay"
+      },
+      {
+        "label": "Yelp"
+      },
+      {
+        "label": "Uber"
+      }
+    ]
+  },
+  {
+    "title": "Language",
+    "instruction": "It has to be written in [label].",
+    "type": "button",
+    "options": [
+      {
+        "label": "VBS"
+      },
+      {
+        "label": "Perl"
+      },
+      {
+        "label": "Cobalt"
+      },
+      {
+        "label": "Lisp"
+      }
+    ]
+  },
+  {
+    "title": "Font",
+    "instruction": "Change it to [label].",
+    "type": "button",
+    "options": [
+      {
+        "label": "Comic Sans"
+      },
+      {
+        "label": "Times New Roman"
+      },
+      {
+        "label": "Papyrus"
+      }
+    ]
+  },
+  {
+    "title": "O-auth",
+    "instruction": "It needs a [label] login.",
+    "type": "button",
+    "options": [
+      {
+        "label": "Twitter"
+      },
+      {
+        "label": "Facebook"
+      },
+      {
+        "label": "Google+"
+      },
+      {
+        "label": "Github"
+      }
+    ]
+  },
+  // {
+  //   "title": "Standard",
+  //   "instruction": "Make it [label].",
+  //   "type": "button",
+  //   "options": [
+  //     {
+  //       "label": "Easy to Use"
+  //     },
+  //     {
+  //       "label": "Cutting Edge"
+  //     },
+  //     {
+  //       "label": "Industry Standard"
+  //     },
+  //     {
+  //       "label": "Webscale"
+  //     }
+  //   ]
+  // },
+  {
+    "title": "Investment",
+    "instruction": "Get [label]K in investment!",
+    "type": "slider",
+    "options": [
+      {
+        "label": "10"
+      },
+      {
+        "label": "20"
+      },
+      {
+        "label": "30"
+      },
+      {
+        "label": "40"
+      }
+    ]
+  },
+  {
+    "title": "SEO",
+    "instruction": "Add [label]% more SEO.",
+    "type": "slider",
+    "options": [
+      {
+        "label": "10"
+      },
+      {
+        "label": "57"
+      },
+      {
+        "label": "100"
+      },
+      {
+        "label": "110"
+      }
+    ]
+  },
+  {
+    "title": "ASDF",
+    "instruction": "[label].",
+    "type": "button",
+    "options": [
+      {
+        "label": "qqq"
+      },
+      {
+        "label": "www"
+      },
+      {
+        "label": "eee"
+      }
+    ]
+  },
+  {
+    "title": "Interns",
+    "instruction": "Hire [label] more interns!",
+    "type": "slider",
+    "options": [
+      {
+        "label": "2"
+      },
+      {
+        "label": "3"
+      },
+      {
+        "label": "4"
+      },
+      {
+        "label": "20"
+      }
+    ]
+  },
+  {
+    "title": "CMS",
+    "instruction": "Just use [label].",
+    "type": "slider",
+    "options": [
+      {
+        "label": "Wordpress"
+      },
+      {
+        "label": "Drupal"
+      },
+      {
+        "label": "Joomla"
+      },
+      {
+        "label": "SquareSpace"
+      }
+    ]
+  },
+  {
+    "title": "Position",
+    "instruction": "Move it [label].",
+    "type": "button",
+    "options": [
+      {
+        "label": "above the fold"
+      },
+      {
+        "label": "to the bottom"
+      },
+      {
+        "label": "to the sidebar"
+      },
+      {
+        "label": "to the top"
+      }
+    ]
+  },
+  {
+    "title": "Target Audience",
+    "instruction": "It's the social network for [label].",
+    "type": "button",
+    "options": [
+      {
+        "label": "Doctors"
+      },
+      {
+        "label": "Pre-Schoolers"
+      },
+      {
+        "label": "Grandparents"
+      },
+      {
+        "label": "Introverts"
+      }
+    ]
+  },
+  {
+    "title": "Industry",
+    "instruction": "It's a marketplace for [label].",
+    "type": "slider",
+    "options": [
+      {
+        "label": "Musicians"
+      },
+      {
+        "label": "Fashion Designers"
+      },
+      {
+        "label": "Chefs"
+      },
+      {
+        "label": "Shoemakers"
+      }
+    ]
+  },
+  {
+    "title": "IE Version",
+    "instruction": "It has to work in [label].",
+    "type": "slider",
+    "options": [
+      {
+        "label": "1"
+      },
+      {
+        "label": "6"
+      },
+      {
+        "label": "7"
+      },
+      {
+        "label": "8"
+      }
+    ]
+  },
+  {
+    "title": "Webscale",
+    "instruction": "Make it more [label].",
+    "type": "button",
+    "options": [
+      {
+        "label": "More"
+      }
+    ]
+  },
+  {
+    "title": "Potential Markets",
+    "instruction": "Tap into the [label] market.",
+    "type": "button",
+    "options": [
+      {
+        "label": "TY Beanie Babies"
+      },
+      {
+        "label": "Medical"
+      },
+      {
+        "label": "Tourism"
+      },
+      {
+        "label": "Renewable Energy"
+      }
+    ]
+  },
+  {
+    "title": "Simple",
+    "instruction": "It's really [label].",
+    "type": "button",
+    "options": [
+      {
+        "label": "Simple"
+      }
+    ]
+  },
+  {
+    "title": "Gamify",
+    "instruction": "[label] it.",
+    "type": "button",
+    "options": [
+      {
+        "label": "Gamify"
+      }
+    ]
+  },
+  {
+    "title": "Pitchdeck",
+    "instruction": "[label] the pitchdeck.",
+    "type": "button",
+    "options": [
+      {
+        "label": "Show"
+      }
+    ]
+  },
+  {
+    "title": "Paradigm",
+    "instruction": "[label] the Paradigm.",
+    "type": "button",
+    "options": [
+      {
+        "label": "Shift"
+      },
+      {
+        "label": "Break away from"
+      },
+      {
+        "label": "Change"
+      }
+    ]
+  },
+  {
+    "title": "AWS Actions",
+    "instruction": "Use [label] on AWS.",
+    "type": "slider",
+    "options": [
+      {
+        "label": "PubSub"
+      },
+      {
+        "label": "Reactive"
+      },
+      {
+        "label": "Webscale"
+      }
+    ]
+  },
+  {
+    "title": "Cowbell",
+    "instruction": "[label] cowbell.",
+    "type": "button",
+    "options": [
+      {
+        "label": "More"
+      },
+      {
+        "label": "Less"
+      }
+    ]
+  },
+  {
+    "title": "New Feature",
+    "instruction": "We need a new feature that [label].",
+    "type": "button",
+    "options": [
+      {
+        "label": "Has Product Detection"
+      },
+      {
+        "label": "Is Wearable"
+      },
+      {
+        "label": "Connected to the Internet of Things"
+      }
+    ]
+  },
+  {
+    "title": "Group Mechanics",
+    "instruction": "Our group promotes [label].",
+    "type": "slider",
+    "options": [
+      {
+        "label": "Innovation"
+      },
+      {
+        "label": "Happiness"
+      },
+      {
+        "label": "Synergy"
+      },
+      {
+        "label": "Group-Think"
+      }
+    ]
+  },
+  {
+    "title": "AGILE",
+    "instruction": "I think it's time for a ___.",
+    "type": "slider",
+    "options": [
+      {
+        "label": "Scrum"
+      },
+      {
+        "label": "Sprint"
+      },
+      {
+        "label": "Epic"
+      }
+    ]
   }
 ]
