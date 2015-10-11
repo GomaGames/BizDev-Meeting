@@ -153,6 +153,7 @@ gameOver = function gameOver() {
 };
 
 performAction = function performAction( label, title ) {
+  var game = getCurrentGame();
 
   // evaluate if progress was made
   // does some player have this as instruction?
@@ -166,6 +167,7 @@ performAction = function performAction( label, title ) {
     Players.update(playerHasInstruction._id, { $set : { assignedInstruction : getRandomAssignment( playerHasInstruction._id ) } });
 
     // increase progress
+    Games.update( game._id, { $set : { progress : game.progress+1 } } );
 
   }else{
     // decrease progress?
