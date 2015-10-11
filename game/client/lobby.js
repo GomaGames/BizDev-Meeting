@@ -35,11 +35,12 @@ Template.lobby.events({
     var playersCount = Players.find({gameID: game._id}).count();
 
     if( playersCount.length >= SETTINGS.MIN_PLAYERS && playersCount.length <= SETTINGS.MAX_PLAYERS){
-      var localEndTime = moment().add(game.lengthInMinutes, 'minutes');
+      var gameLength = (Math.random()*playersCount/2) + playersCount;
+      var localEndTime = moment().add(gameLength, 'minutes');
       var localStartTime = TimeSync.serverTime(moment());
       var gameEndTime = TimeSync.serverTime(localEndTime);
 
-      Games.update(game._id, {$set: {state: 'inProgress', endTime: gameEndTime, startTime: localStartTime }});
+      Games.update(game._id, {$set: {state: 'inProgress', lengthInMinutes: gameLength, endTime: gameEndTime, startTime: localStartTime }});
 
       setGameGoal();
       Session.set('currentView', 'gameView');

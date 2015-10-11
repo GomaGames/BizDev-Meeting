@@ -47,7 +47,7 @@ generateNewGame = function generateNewGame(){
     accessCode: company.code,
     companyName: company.name,
     state: "waitingForPlayers",
-    lengthInMinutes: 10.12,
+    lengthInMinutes: 1, // gets set in lobby, btn-start
     endTime: null,
     startTime: null,
     goal: null,
