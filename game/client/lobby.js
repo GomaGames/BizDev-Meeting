@@ -31,17 +31,20 @@ Template.lobby.helpers({
 Template.lobby.events({
   'click .btn-leave': leaveGame,
   'click .btn-start': function () {
-
     var game = getCurrentGame();
-    var players = Players.find({gameID: game._id});
-    var localEndTime = moment().add(game.lengthInMinutes, 'minutes');
-    var localStartTime = TimeSync.serverTime(moment());
-    var gameEndTime = TimeSync.serverTime(localEndTime);
+    var playersCount = Players.find({gameID: game._id}).count();
 
-    Games.update(game._id, {$set: {state: 'inProgress', endTime: gameEndTime, startTime: localStartTime }});
+    if( playersCount >= SETTINGS.MIN_PLAYERS && playersCount <= SETTINGS.MAX_PLAYERS){
+      var gameLength = (Math.random()*playersCount/2) + playersCount;
+      var localEndTime = moment().add(gameLength, 'minutes');
+      var localStartTime = TimeSync.serverTime(moment());
+      var gameEndTime = TimeSync.serverTime(localEndTime);
 
-    setGameGoal();
-    Session.set('currentView', 'gameView');
+      Games.update(game._id, {$set: {state: 'inProgress', lengthInMinutes: gameLength, endTime: gameEndTime, startTime: localStartTime }});
+
+      setGameGoal();
+      Session.set('currentView', 'gameView');
+    }
   },
   'click .btn-remove-player': function (event) {
     var playerID = $(event.currentTarget).data('player-id');

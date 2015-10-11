@@ -19,7 +19,7 @@ Template.joinMeeting.events({
         accessCode: accessCode
       });
 
-      if (game) {
+      if (game && Players.find({gameID:game._id}).count() < SETTINGS.MAX_PLAYERS) {
         Meteor.subscribe('players', game._id);
         player = generateNewPlayer(game, playerName);
 

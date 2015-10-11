@@ -25,7 +25,7 @@
   {
     "title": "Rounded Corners",
     "instruction": "Give it [label] rounded corners",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "1"
@@ -128,7 +128,7 @@
   {
     "title": "Services",
     "instruction": "It has to have a [label].",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "CMS"
@@ -173,7 +173,7 @@
   {
     "title": "Content",
     "instruction": "We need [label].",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "UGC"
@@ -189,7 +189,7 @@
   {
     "title": "Open Source",
     "instruction": "Make it [label] Open Source.",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "Less"
@@ -202,7 +202,7 @@
   {
     "title": "Router",
     "instruction": "Turn [label] the router.",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "On"
@@ -215,7 +215,7 @@
   {
     "title": "Algorithm",
     "instruction": "Make the algorithm [label].",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "Better"
@@ -260,7 +260,7 @@
   {
     "title": "Version Control",
     "instruction": "Go back to version [label].",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "1"
@@ -276,7 +276,7 @@
   {
     "title": "Send to Client",
     "instruction": "Send it to the client [label].",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "ASAP"
@@ -292,7 +292,7 @@
   {
     "title": "ROI",
     "instruction": "The ROI is [label].",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "Off the Charts"
@@ -422,7 +422,7 @@
   {
     "title": "Investment",
     "instruction": "Get [label]K in investment!",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "10"
@@ -441,7 +441,7 @@
   {
     "title": "SEO",
     "instruction": "Add [label]% more SEO.",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "10"
@@ -460,7 +460,7 @@
   {
     "title": "Interns",
     "instruction": "Hire [label] more interns!",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "2"
@@ -479,7 +479,7 @@
   {
     "title": "CMS",
     "instruction": "Just use [label].",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "Wordpress"
@@ -536,7 +536,7 @@
   {
     "title": "Industry",
     "instruction": "It's a marketplace for [label].",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "Musicians"
@@ -555,7 +555,7 @@
   {
     "title": "IE Version",
     "instruction": "It has to work in [label].",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "1"
@@ -649,7 +649,7 @@
   {
     "title": "AWS Actions",
     "instruction": "Use [label] on AWS.",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "PubSub"
@@ -694,7 +694,7 @@
   {
     "title": "Group Mechanics",
     "instruction": "Our group promotes [label].",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "Innovation"
@@ -713,7 +713,7 @@
   {
     "title": "AGILE",
     "instruction": "I think it's time for a [label].",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "Scrum"
@@ -729,7 +729,7 @@
   {
     "title": "Release",
     "instruction": "[label]!",
-    "type": "slider",
+    "type": "button",
     "options": [
       {
         "label": "MAKE IT LIVE"
