@@ -38,6 +38,7 @@ Template.lobby.events({
     var gameEndTime = TimeSync.serverTime(localEndTime);
 
     Games.update(game._id, {$set: {state: 'inProgress', endTime: gameEndTime }});
+    setGameGoal();
     Session.set('currentView', 'gameView');
   },
   'click .btn-remove-player': function (event) {

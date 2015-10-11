@@ -15,6 +15,7 @@ generateNewGame = function generateNewGame(){
     state: "waitingForPlayers",
     lengthInMinutes: 0.1,
     endTime: null,
+    goal: null,
     result: false
   };
 
@@ -92,4 +93,14 @@ getTimeRemaining = function getTimeRemaining(){
   }
 
   return timeRemaining;
+};
+
+setGameGoal = function setGameGoal(){
+  var game = getCurrentGame();
+  var players = Players.find({gameID : game._id}).fetch();
+
+  Games.update(game._id, { $set : { goal : players.reduce(function(p,c){
+    return p + Math.round( (Math.random() * 10) + 10 );
+  }, 0) }});
+
 };

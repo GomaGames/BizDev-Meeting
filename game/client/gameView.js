@@ -19,7 +19,6 @@ Template.gameView.created = function( event ) {
   getRandomTiles(4, function(actionTiles){
     self.actionTiles.set(actionTiles);
   });
-
 };
 
 Template.gameView.rendered = function( event ) {
