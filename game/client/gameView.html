@@ -6,6 +6,12 @@
   PROGRESS: {{ getProgress }}
   <button class="btn-back">RAGE QUIT</button>
   <button id="btn-progression">EZ MODE PROGRESSION BUTTON</button>
+
+  <div class="assignment">
+    assignment
+    {{ assignment.text }}
+  </div>
+
   <div>
     {{#each actionTiles}}
       {{> Template.dynamic template=type}}

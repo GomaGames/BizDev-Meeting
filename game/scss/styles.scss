@@ -6,12 +6,55 @@ body{
 }
 
 .wrapper{
-  background-color: pink;
+  background-color: orange;
 }
 
-h1{
-  font-size: 2rem;
+/* Main UI */
+
+$primary-color: #000;
+$paragraph-color: #777;
+$padding: 1.5rem;
+$padding-vertical: $padding*.75;
+$topbar-color: #00017F;
+$topbar-font-color: #FFF;
+$background-color: #CCC;
+
+h1,h2,h3,h4,h5,h6,p,li{
+  font-size: 1.2rem;
+}
+
+p{
+  color: $paragraph-color;
+}
+
+.topbar{
+  padding: $padding-vertical $padding;
+  background-color: $topbar-color;
+  position: relative;
+
+  h3{
+    color: $topbar-font-color;
+  }
+
+  .btn-back{
+    background-color: $background-color;
+    padding: 0 $padding/2;
+    line-height: 2.3rem;
+    color: $primary-color;
+    position: absolute;
+    font-size: 1.5rem;
+    top: $padding/5;
+    right: $padding/4;
+  }
+}
+
+.panel{
+  background-color: $background-color;
+  padding: $padding;
+}
+
+.button-block{
+  width: 100%;
 }
 
 @import "tiles/tile";
-
