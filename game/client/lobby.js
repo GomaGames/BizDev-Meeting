@@ -34,7 +34,7 @@ Template.lobby.events({
     var game = getCurrentGame();
     var playersCount = Players.find({gameID: game._id}).count();
 
-    if( playersCount.length >= SETTINGS.MIN_PLAYERS && playersCount.length <= SETTINGS.MAX_PLAYERS){
+    if( playersCount >= SETTINGS.MIN_PLAYERS && playersCount <= SETTINGS.MAX_PLAYERS){
       var gameLength = (Math.random()*playersCount/2) + playersCount;
       var localEndTime = moment().add(gameLength, 'minutes');
       var localStartTime = TimeSync.serverTime(moment());
