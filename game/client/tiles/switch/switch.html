@@ -1,3 +1,10 @@
 <template name="switch">
-  <h3>Switch</h3>
+  <div class="tile tile-button">
+  <h3>{{ title  }}</h3>
+  {{#each options}}
+
+  <button class="action" data-action="{{label}}">{{label}}</button>
+
+  {{/each}}
+  </div>
 </template>
