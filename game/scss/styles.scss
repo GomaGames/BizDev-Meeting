@@ -1,6 +1,7 @@
 @import "partials/reset";
 @import "partials/grid";
 @import "utils/functions";
+@import "utils/colors";
 
 // temp
 
@@ -11,19 +12,9 @@ td h1{
   border: 1px solid red;
 }
 
-// colors
-
-$primary-color: #000;
-$paragraph-color: #777;
-$death-color: #0002AA;
 $padding: 1.5rem;
 $padding-vertical: $padding*.75;
-$topbar-color: #00017F;
-$topbar-font-color: #FFF;
-$background-color: #CCC;
-$html-color: $background-color;
-$alert-color: #9D2C1A;
-$highlight-color: $topbar-font-color;
+
 
 /* Generic Styles */
 
