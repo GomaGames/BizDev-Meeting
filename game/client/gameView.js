@@ -147,6 +147,15 @@ Template.gameView.helpers({
     return totalProgress;
   },
   flashStatus: function() {
-    return getCurrentGame().status;
+    var game = getCurrentGame();
+    if(!game){
+      return;
+    }
+    if ( game.status != null ){
+      Meteor.setTimeout(function() {
+        Games.update(game._id, { $set: { status: null }});
+      }, 4000 );
+    }
+    return game.status;
   }
 });
