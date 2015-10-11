@@ -104,14 +104,23 @@ Template.gameView.helpers({
     var deadlineBarValue = new ReactiveVar(0);
     var currentTime = getGameTimer();
     var totalTime = getTotalTime();
-    var progress = Math.floor((currentTime / totalTime) * 100);
+    var progress = Math.floor(( currentTime / totalTime ) * 100 );
     deadlineBarValue.set(progress);
     return deadlineBarValue.get();
   },
   getProgress: function() {
-    return getProgress();
+    var game = getCurrentGame();
+    var progress = game.progress;
+    var goal = game.goal;
+    var totalProgress = Math.floor( progress / goal * 100 );
+    return totalProgress;
   },
-  getAssignment: function() {
-    return getCurrentPlayer().assignedInstruction;
+  progressBar: function() {
+    var game = getCurrentGame();
+    var progress = game.progress;
+    var goal = game.goal;
+    var progressUnit = (20 / game.goal);
+    var totalProgress = Math.floor(progressUnit * game.progress);
+    return totalProgress;
   }
 });
