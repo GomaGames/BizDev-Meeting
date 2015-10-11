@@ -7,8 +7,7 @@
 .temp,
 .time-bar,
 .progress-bar,
-td h1,
-.game-flash-status{
+td h1{
   background-color:pink;
   border: 1px solid red;
 }
@@ -177,6 +176,11 @@ input[type="text"]{
     font-size: 1.4rem;
     color: $alert-color;
   }
+}
+
+.game-flash-status{
+  color: $alert-color;
+  margin-top: $padding/4;
 }
 
 /* Assignment */

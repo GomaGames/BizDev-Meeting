@@ -22,6 +22,11 @@
   option {
     position: relative;
     margin-top: 35px;
+
+    width: 25%; // kelli
+    white-space: pre-line; // kelli
+    font-size: .75rem;  // kelli
+
     &:before {
       position: absolute;
       top: -15px;

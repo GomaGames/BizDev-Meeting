@@ -19,13 +19,6 @@
           Manny's Progress Bar {{ getProgress }}%
         </div>
       </div>
-
-
-      {{#if flashStatus}}
-        <span class="game-flash-status">{{flashStatus}}</span>
-      {{/if}}
-
-
     </div>
 
     <div class="assignment row">
@@ -33,6 +26,10 @@
         <h2>
           {{ getAssignment.text }}
         </h2>
+        {{#if flashStatus}}
+          <h2 class="game-flash-status">{{flashStatus}}</h2>
+        {{/if}}
+
       </div>
     </div>
     <div class="control-panel row">
