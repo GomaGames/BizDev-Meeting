@@ -10,14 +10,14 @@
     {{else}}
     {{/if}}
     <form id="join-meeting" class="row">
-      <div>
-        <input autocorrect="off" autocapitalize="off" type="text" id="access-code" name="accessCode" placeholder='Access Code' class="column-4">
-        <input type="text" id="player-name" name="playerName" placeholder='Your Name...' class="column-4">
-
-        {{> flashMessages}}
-
+      <div class="column-4">
+        <input autocorrect="off" autocapitalize="off" type="text" id="access-code" name="accessCode" placeholder='Access Code'>
+        <input type="text" id="player-name" name="playerName" placeholder='Your Name...'>
+        <div class="column-4">
+          {{> flashMessages}}
+        </div>
         <div class="button-container column-4">
-          <input type="submit" value='Join Meeting' class="button button-block">
+          <button type="submit" class="button button-block">Join Meeting</button>
         </div>
       </div>
     </form>    
