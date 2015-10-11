@@ -5,11 +5,18 @@
         <h4 class="tile__title">{{title}}</h4>
         <h6 class="range-current">Current: {{current}}</h6>
         <input class="range-slider" type="range" value="1" min="1" max="{{options.length}}" list="number" />
-        <datalist class="range-datalist" id="number">
+        <datalist id="number">
           {{#each options}}
           <option>{{label}}</option>
           {{/each}}
         </datalist>
+        <ul class="range-datalist">
+          {{#each options}}
+          <li>
+            <span>{{label}}</span>
+          </li>
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>

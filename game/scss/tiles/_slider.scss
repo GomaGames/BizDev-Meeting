@@ -23,9 +23,19 @@ input[type='range'].range-slider {
   flex-direction: row;
   width: calc(100% - 12px);
   margin: 0 auto;
-  option {
+  li {
     position: relative;
+    width: 10px;
     margin-top: 35px;
+    margin-bottom: 20px;
+    font-size: rem(16px);
+    span {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-style: normal;
+      font-weight: 400;
+    }
     &:before {
       position: absolute;
       top: -15px;
