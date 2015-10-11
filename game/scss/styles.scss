@@ -24,6 +24,7 @@ $topbar-color: #00017F;
 $topbar-font-color: #FFF;
 $background-color: #CCC;
 $alert-color: #9D2C1A;
+$highlight-color: #DDD;
 
 /* Generic Styles */
 
@@ -228,15 +229,15 @@ table{
   border-spacing:3px;
   border-collapse: separate;
   border-bottom: 2px solid $primary-color;
-  border-right: 2px solid lighten($primary-color*.75);
+  border-right: 2px solid $highlight-color;
   border-left: 2px solid $primary-color;
-  border-top: 2px solid lighten($primary-color*.75);
+  border-top: 2px solid $highlight-color;
   td{
     padding: $padding*0.5;
     border-top: 2px solid $primary-color;
-    border-left: 2px solid lighten($primary-color*.75);
+    border-left: 2px solid $highlight-color;
     border-right: 2px solid $primary-color;
-    border-bottom: 2px solid lighten($primary-color*.75);
+    border-bottom: 2px solid $highlight-color;
     background-color: $topbar-font-color;
   }
 }
