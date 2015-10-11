@@ -2,6 +2,7 @@
 @import "partials/grid";
 @import "utils/functions";
 @import "utils/colors";
+@import "utils/variables";
 
 // temp
 
@@ -11,9 +12,6 @@ td h1{
   background-color:pink;
   border: 1px solid red;
 }
-
-$padding: 1.5rem;
-$padding-vertical: $padding*.75;
 
 
 /* Generic Styles */
