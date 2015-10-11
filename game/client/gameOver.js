@@ -25,7 +25,7 @@ Template.gameOver.helpers({
     }
     var timeBonus;
     if( game.result === true ){
-      timeBonus = Math.floor(Number(game.endTime - moment() - TimeSync.serverOffset())/5);
+      timeBonus = Math.floor(Number(game.endTime - moment() - TimeSync.serverOffset()));
       Session.set('timeBonus', timeBonus);
     }
     return timeBonus;
@@ -38,7 +38,7 @@ Template.gameOver.helpers({
     var actionBonus;
 
     if( game.result === true ){
-      actionBonus = Math.round(100000 * ( ( game.goal - game.actionCounter ) / game.goal ));
+      actionBonus = Math.round(100000 * ( ( game.goal - game.actionCounter ) / game.goal + 10 ));
       Session.set('actionBonus', actionBonus);
     }
     return actionBonus;
