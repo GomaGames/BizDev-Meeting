@@ -5,8 +5,8 @@
 // temp
 
 .temp,
-.time-bar,
-.progress-bar{
+.progress-bar,
+td h1{
   background-color:pink;
   border: 1px solid red;
 }
@@ -109,7 +109,7 @@ p{
 }
 
 .control-panel {
-  height: calc(100% - 75px);
+  height: calc(100% - 105px);
 }
 
 /* List of Users */
@@ -214,6 +214,7 @@ input[type="text"]{
 
 
 
+@import "tiles/status";
 @import "tiles/tile";
 @import "tiles/button";
 @import "tiles/slider";
