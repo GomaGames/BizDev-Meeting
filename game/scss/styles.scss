@@ -6,11 +6,58 @@ body{
 }
 
 .wrapper{
-  background-color: pink;
+  background-color: orange;
 }
 
+/* Main UI */
+
+$primary-color: #000;
+$padding: 1.5rem;
+$padding-vertical: $padding*.75;
+$topbar-color: #00017F;
+$topbar-font-color: #FFF;
+$background-color: #CCC;
+
 h1{
-  font-size: 2rem;
+  font-size: 2rem; // ?
+}
+
+h2{
+
+}
+
+h3{
+  font-size: 1.2rem;
+}
+
+.topbar{
+  padding: $padding-vertical $padding;
+  background-color: $topbar-color;
+  position: relative;
+
+  h3{
+    color: $topbar-font-color;
+  }
+
+  .btn-back{
+    background-color: $background-color;
+    padding: 0 $padding/2;
+    line-height: 2.3rem;
+    color: $primary-color;
+    position: absolute;
+    font-size: 1.5rem;
+    top: $padding/5;
+    right: $padding/4;
+  }
+}
+
+.panel{
+  background-color: $background-color;
+  padding: $padding;
+}
+
+.button-block{
+  width: 100%;
 }
 
 .action-container {
@@ -21,4 +68,3 @@ h1{
 }
 
 @import "tiles/tile";
-
