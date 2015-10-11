@@ -19,7 +19,7 @@ progress[value]::-webkit-progress-bar {
 }
 
 progress[value]::-webkit-progress-value {
-  background: #0a126c;
+  background: repeating-linear-gradient(to right, #0a126c, #0a126c 18px, transparent 0, transparent 20px) no-repeat 50% 50%;
 }
 
 .time-bar {
