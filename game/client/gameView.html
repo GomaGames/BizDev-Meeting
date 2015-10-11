@@ -17,8 +17,15 @@
         <h5>Progress: {{ getProgress }}%</h5>
         <div class="progress-bar size-{{progressBar}}">
           Manny's Progress Bar {{ getProgress }}%
-        </div>        
+        </div>
       </div>
+
+
+      {{#if flashStatus}}
+        <span class="game-flash-status">{{flashStatus}}</span>
+      {{/if}}
+
+
     </div>
 
     <div class="assignment row">

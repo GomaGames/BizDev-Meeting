@@ -419,25 +419,6 @@
       }
     ]
   },
-  // {
-  //   "title": "Standard",
-  //   "instruction": "Make it [label].",
-  //   "type": "button",
-  //   "options": [
-  //     {
-  //       "label": "Easy to Use"
-  //     },
-  //     {
-  //       "label": "Cutting Edge"
-  //     },
-  //     {
-  //       "label": "Industry Standard"
-  //     },
-  //     {
-  //       "label": "Webscale"
-  //     }
-  //   ]
-  // },
   {
     "title": "Investment",
     "instruction": "Get [label]K in investment!",
@@ -758,6 +739,16 @@
       },
       {
         "label": "Epic"
+      }
+    ]
+  },
+  {
+    "title": "Release",
+    "instruction": "[label]!",
+    "type": "slider",
+    "options": [
+      {
+        "label": "MAKE IT LIVE"
       }
     ]
   }
