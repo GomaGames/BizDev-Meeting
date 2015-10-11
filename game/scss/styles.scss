@@ -6,8 +6,7 @@
 
 .temp,
 .time-bar,
-.progress-bar,
-td h1{
+.progress-bar{
   background-color:pink;
   border: 1px solid red;
 }
@@ -56,7 +55,7 @@ h1,h2,h3,h4,h5,h6,p,li{
       font-style: normal;
       font-weight: normal;
       margin-bottom: $padding/4;
-      display: block;
+      // display: block;
       margin-bottom: $padding;
       // font-size: 1.5rem;
     }
