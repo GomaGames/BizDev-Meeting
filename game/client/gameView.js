@@ -19,8 +19,12 @@ function getRandomTiles(amount){
   });
 }
 
+/*
+ * Get a random assignment using all the available tiles that are on peoples screen
+ */
 function getRandomAssignment(){
-  var randomTile = allActionTiles[ Math.floor( Math.random()*allActionTiles.length ) ];
+  var gameTiles = getCurrentGameAllTiles();
+  var randomTile = gameTiles[ Math.floor( Math.random()*gameTiles.length ) ];
   var randomOption = randomTile.options[ Math.floor( Math.random()*randomTile.options.length ) ];
   return {
     text : randomTile.instruction.replace("[label]", randomOption.label)
@@ -28,6 +32,7 @@ function getRandomAssignment(){
 }
 
 Template.gameView.created = function( event ) {
+  var player = getCurrentPlayer();
   var self = this;
   this.actionTiles = new ReactiveVar([]);
   this.assignedAction = new ReactiveVar({ text : "waiting..." });
@@ -36,6 +41,8 @@ Template.gameView.created = function( event ) {
 
     // get first set of action tiles
     self.actionTiles.set( getRandomTiles(4) );
+    // report that to db
+    player.actionTiles = self.actionTiles.get();
 
     // get first assignment
     self.assignedAction.set( getRandomAssignment() );

@@ -30,7 +30,8 @@ generateNewGame = function generateNewGame(){
 generateNewPlayer = function generateNewPlayer(game, name){
   var player = {
     gameID: game._id,
-    name: name
+    name: name,
+    actionTiles: []
   };
 
   var playerID = Players.insert(player);
@@ -62,6 +63,12 @@ getCurrentPlayer = function getCurrentPlayer(){
   if (playerID) {
     return Players.findOne(playerID);
   }
+};
+
+getCurrentGameAllTiles = function getCurrentGameAllTiles(){
+  return Players.find({gameID : getCurrentGame()._id}).fetch().reduce(function(p,c){
+    return p.concat(c.actionTiles);
+  },[]);
 };
 
 getGameResult = function getGameResult() {
