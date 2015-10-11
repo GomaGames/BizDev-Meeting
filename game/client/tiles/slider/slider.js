@@ -1,5 +1,6 @@
 Template.slider.created = function() {
-  this.sliderValue = new ReactiveVar(1);
+  this.options = this.data.options;
+  this.sliderValue = new ReactiveVar(this.options[0].label);
 };
 
 Template.slider.events({
@@ -8,7 +9,7 @@ Template.slider.events({
   },
   'change .range-slider': function(event) {
      var sliderValue = event.currentTarget.value;
-     Template.instance().sliderValue.set(sliderValue);
+     Template.instance().sliderValue.set(Template.instance().options[sliderValue - 1].label);
   }
 });
 
