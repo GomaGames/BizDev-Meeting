@@ -102,21 +102,36 @@ Template.gameView.helpers({
     var tiles = Template.instance().actionTiles.get();
     return tiles.slice((tiles.length + 1) / 2);
   },
-  assignment: function() {
-    return Template.instance().assignedAction.get();
+  getAssignment: function() {
+    return getCurrentPlayer().assignedInstruction;
   },
   deadlineBar: function () {
     var deadlineBarValue = new ReactiveVar(0);
     var currentTime = getGameTimer();
     var totalTime = getTotalTime();
-    var progress = Math.floor((currentTime / totalTime) * 100);
+    var progress = Math.floor(( currentTime / totalTime ) * 100 );
     deadlineBarValue.set(progress);
     return deadlineBarValue.get();
   },
   getProgress: function() {
-    return getProgress();
+    var game = getCurrentGame();
+    if(!game){
+      return;
+    }
+    var progress = game.progress;
+    var goal = game.goal;
+    var totalProgress = Math.floor( progress / goal * 100 );
+    return totalProgress;
   },
-  getAssignment: function() {
-    return getCurrentPlayer().assignedInstruction;
+  progressBar: function() {
+    var game = getCurrentGame();
+    if(!game){
+      return;
+    }
+    var progress = game.progress;
+    var goal = game.goal;
+    var progressUnit = (20 / game.goal);
+    var totalProgress = Math.floor(progressUnit * game.progress);
+    return totalProgress;
   }
 });
