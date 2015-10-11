@@ -25,7 +25,7 @@ Template.gameOver.helpers({
     }
     var timeBonus;
     if( game.result === true ){
-      timeBonus = Math.floor(Number(game.endTime - TimeSync.serverTime(moment()) - TimeSync.serverOffset())/5);
+      timeBonus = Math.floor(Number(game.endTime - moment() - TimeSync.serverOffset())/5);
       Session.set('timeBonus', timeBonus);
     }
     return timeBonus;
