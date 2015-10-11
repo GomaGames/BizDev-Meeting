@@ -15,5 +15,5 @@ Template.startMenu.helpers({
 });
 
 Template.startMenu.rendered = function () {
-
+  resetUserState();
 };

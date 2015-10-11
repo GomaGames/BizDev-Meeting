@@ -1,44 +1,39 @@
 generateAccessCode = function generateAccessCode(){
   var code = "";
-  var possible = "abcdefghijklmnopqrstuvwxyz";
+  var possible = "abc";
 
-    for(var i=0; i < 6; i++){
+    for(var i=0; i < 3; i++){
       code += possible.charAt(Math.floor(Math.random() * possible.length));
     }
 
     return code;
-}
+};
 
 generateNewGame = function generateNewGame(){
   var game = {
     accessCode: generateAccessCode(),
     state: "waitingForPlayers",
-    location: null,
-    lengthInMinutes: 8,
+    lengthInMinutes: 0.1,
     endTime: null,
-    paused: false,
-    pausedTime: null
+    result: false
   };
 
   var gameID = Games.insert(game);
   game = Games.findOne(gameID);
 
   return game;
-}
+};
 
 generateNewPlayer = function generateNewPlayer(game, name){
   var player = {
     gameID: game._id,
-    name: name,
-    role: null,
-    isSpy: false,
-    isFirstPlayer: false
+    name: name
   };
 
   var playerID = Players.insert(player);
 
   return Players.findOne(playerID);
-}
+};
 
 leaveGame = function leaveGame () {
   var player = getCurrentPlayer();
@@ -47,7 +42,8 @@ leaveGame = function leaveGame () {
   Players.remove(player._id);
 
   Session.set("playerID", null);
-}
+  Session.set("gameID", null);
+};
 
 getCurrentGame = function getCurrentGame(){
   var gameID = Session.get("gameID");
@@ -55,17 +51,7 @@ getCurrentGame = function getCurrentGame(){
   if (gameID) {
     return Games.findOne(gameID);
   }
-}
-
-getAccessLink = function getAccessLink(){
-  var game = getCurrentGame();
-
-  if (!game){
-    return;
-  }
-
-  return Meteor.settings.public.url + game.accessCode + "/";
-}
+};
 
 getCurrentPlayer = function getCurrentPlayer(){
   var playerID = Session.get("playerID");
@@ -73,7 +59,13 @@ getCurrentPlayer = function getCurrentPlayer(){
   if (playerID) {
     return Players.findOne(playerID);
   }
-}
+};
+
+getGameResult = function getGameResult() {
+  var game = getCurrentGame();
+
+  return game.result;
+};
 
 resetUserState = function resetUserState(){
   var player = getCurrentPlayer();
@@ -84,4 +76,20 @@ resetUserState = function resetUserState(){
 
   Session.set("gameID", null);
   Session.set("playerID", null);
-}
+  Session.set("time", null);
+};
+
+getTimeRemaining = function getTimeRemaining(){
+  var game = getCurrentGame();
+  if(!game){
+    return;
+  }
+  var localEndTime = game.endTime - TimeSync.serverOffset();
+  var timeRemaining = localEndTime - Session.get('time');
+
+  if (timeRemaining < 0) {
+    timeRemaining = 0;
+  }
+
+  return timeRemaining;
+};

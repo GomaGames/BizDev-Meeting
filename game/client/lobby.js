@@ -34,7 +34,11 @@ Template.lobby.events({
 
     var game = getCurrentGame();
     var players = Players.find({gameID: game._id});
-    Session.set("currentView", "gameView");
+    var localEndTime = moment().add(game.lengthInMinutes, 'minutes');
+    var gameEndTime = TimeSync.serverTime(localEndTime);
+
+    Games.update(game._id, {$set: {state: 'inProgress', endTime: gameEndTime }});
+    Session.set('currentView', 'gameView');
   },
   'click .btn-remove-player': function (event) {
     var playerID = $(event.currentTarget).data('player-id');
@@ -49,6 +53,6 @@ Template.lobby.events({
 });
 
 Template.lobby.rendered = function (event) {
-  var url = getAccessLink();
+
 };
 

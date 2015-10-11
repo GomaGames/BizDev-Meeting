@@ -1,0 +1,60 @@
+[
+  {
+    "title": "Beta Testing",
+    "instruction": "Ship a Beta Version",
+    "type": "button",
+    "options": [
+      {
+        "label": "Ship Beta"
+      }
+    ]
+  },
+  {
+    "title": "Power",
+    "instruction": "Turn the Power [label]",
+    "type": "switch",
+    "options": [
+      {
+        "label": "Off"
+      },
+      {
+        "label": "On"
+      }
+    ]
+  },
+  {
+    "title": "Rounded Corners",
+    "instruction": "Give it [label] rounded corners",
+    "type": "slider",
+    "options": [
+      {
+        "label": "1"
+      },
+      {
+        "label": "2"
+      },
+      {
+        "label": "3"
+      }
+    ]
+  },
+  {
+    "title": "Distribution Strategy",
+    "instruction": "Switch to [label] Distribution Strategy",
+    "type": "button",
+    "options": [
+      {
+       "label": "B2B"
+      },
+      {
+        "label": "B2C"
+      },
+      {
+        "label": "C2C"
+      },
+      {
+        "label": "P2P"
+      }
+    ]
+  }
+]
