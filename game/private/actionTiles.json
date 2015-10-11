@@ -760,5 +760,15 @@
         "label": "Epic"
       }
     ]
+  },
+  {
+    "title": "Release",
+    "instruction": "[label]!",
+    "type": "slider",
+    "options": [
+      {
+        "label": "MAKE IT LIVE"
+      }
+    ]
   }
 ]
