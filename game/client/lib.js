@@ -13,9 +13,10 @@ generateNewGame = function generateNewGame(){
   var game = {
     accessCode: generateAccessCode(),
     state: "waitingForPlayers",
-    lengthInMinutes: 0.1,
+    lengthInMinutes: 1,
     endTime: null,
-    result: false
+    result: false,
+    startTime: null
   };
 
   var gameID = Games.insert(game);
@@ -77,6 +78,30 @@ resetUserState = function resetUserState(){
   Session.set("gameID", null);
   Session.set("playerID", null);
   Session.set("time", null);
+};
+
+getGameTimer = function getGameTimer(){
+  var game = getCurrentGame();
+  if(!game){
+    return;
+  }
+  var timeCount = Session.get('time') - TimeSync.serverOffset() - game.startTime;
+
+  if (timeCount < 0) {
+    timeCount = 0;
+  }
+
+  return timeCount;
+};
+
+getTotalTime = function getTotalTime(){
+  var game = getCurrentGame();
+  if(!game){
+    return;
+  }
+  var time = Session.get('time');
+  var localEndTime = game.endTime - game.startTime - TimeSync.serverOffset();
+  return localEndTime;
 };
 
 getTimeRemaining = function getTimeRemaining(){
