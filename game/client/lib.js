@@ -1,17 +1,51 @@
-generateAccessCode = function generateAccessCode(){
+generateCompany = function generateCompany(){
   var code = "";
-  var possible = "abc";
+  var name = "";
 
-    for(var i=0; i < 3; i++){
-      code += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
+  var possibleNames = [
+    "Hooli", "Magnetix", "Ubee", "Snoogle", "Globatek",
+    "Pro", "Conglomo", "Bi-Tel", "Tri-Tel", "Edjy",
+    "Egiee", "Loonr", "Espressr", "Bottlr", "Armr",
+    "Clothr", "Bordr", "Fillr", "Huggr", "Entr",
+    "Filltr", "Tickr", "Accessr", "Cookr", "Instoogle",
+    "Instaface", "Instabook", "iSocial", "FriendFace", "FaceFriend",
+    "InstaFriend", "FaceBookBook", "PaceBook", "Bittr", "Sour",
+    "Trendr", "IfyIfy", "Trendify", "Bookify", "Friendify",
+    "Butt.fm", "Cloudify", "Cloudio", "HashTagIfy", "Changify",
+    "Seenit", "Promisly", "FriendFacely", "iMergr", "iBurgr"
+  ];
 
-    return code;
+  var taken = Games.find().fetch().map(function(game){
+    return game.accessCode;
+  });
+
+  do{
+    // get 3-4 upper case letters
+    name = possibleNames[ Math.floor( Math.random()*possibleNames.length ) ];
+    do{
+      name += " "+possibleNames[ Math.floor( Math.random()*possibleNames.length ) ];
+    } while(
+      name.split('').filter(function(chars){
+        return chars.charCodeAt(0) > 64 && chars.charCodeAt(0) < 91; // uppercase letters
+      }).length < 3
+    );
+    code = name.split('').filter(function(chars){
+      return chars.charCodeAt(0) > 64 && chars.charCodeAt(0) < 91; // uppercase letters
+    }).join('').toLowerCase();
+  } while(taken.indexOf(code) > -1); // make sure does not exist
+
+  return {
+    code : code,
+    name : name
+  };
+
 };
 
 generateNewGame = function generateNewGame(){
+  var company = generateCompany();
   var game = {
-    accessCode: generateAccessCode(),
+    accessCode: company.code,
+    companyName: company.name,
     state: "waitingForPlayers",
     lengthInMinutes: 10.12,
     endTime: null,
