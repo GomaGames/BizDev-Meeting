@@ -22,7 +22,7 @@ function getRandomTiles(amount){
 
   while(tiles.length < amount){
     var randomTile = allActionTiles[ Math.floor(Math.random()*allActionTiles.length) ];
-    if( !usedTiles.filter(function(tile){ return tile.title === randomTile.title; }).length ){
+    if( usedTiles.filter(function(tile){ return tile.title === randomTile.title; }).length == 0 ){
       usedTiles.push(randomTile);
       tiles.push(randomTile);
     }

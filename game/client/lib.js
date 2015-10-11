@@ -195,7 +195,7 @@ performAction = function performAction( label, title ) {
   // does some player have this as instruction?
 
   var playerHasInstruction = Players.find({gameID : getCurrentGame()._id}).fetch().reduce(function(foundPlayer, player){
-    return foundPlayer || (player.assignedInstruction.title === title && player.assignedInstruction.correctOption === label ) ? player : false;
+    return foundPlayer || ((player.assignedInstruction.title === title && player.assignedInstruction.correctOption === label ) ? player : false);
   }, false);
 
   if(playerHasInstruction){
