@@ -14,7 +14,6 @@ td h1{
 
 // colors
 
-$html-color: #222;
 $primary-color: #000;
 $paragraph-color: #777;
 $death-color: #0002AA;
@@ -23,8 +22,9 @@ $padding-vertical: $padding*.75;
 $topbar-color: #00017F;
 $topbar-font-color: #FFF;
 $background-color: #CCC;
+$html-color: $background-color;
 $alert-color: #9D2C1A;
-$highlight-color: #DDD;
+$highlight-color: $topbar-font-color;
 
 /* Generic Styles */
 
@@ -182,7 +182,7 @@ input[type="text"]{
 
 .assignment-text{
   height: 5rem;
-  padding: $padding;
+  padding: $padding*.75 $padding;
   margin-bottom: $padding/2;
   margin-top: $padding/2;
   box-shadow: inset 0px 1px 2px 1px rgba(0,0,0,0.75);
@@ -190,7 +190,7 @@ input[type="text"]{
 
   h2{
     font-size: 1.2rem;
-    line-height: 1.8;
+    line-height: 1;
   }
 }
 
@@ -228,15 +228,15 @@ table{
   width: 100%;
   border-spacing:3px;
   border-collapse: separate;
-  border-bottom: 2px solid $primary-color;
-  border-right: 2px solid $highlight-color;
-  border-left: 2px solid $primary-color;
+  border-left: 2px solid $highlight-color;
   border-top: 2px solid $highlight-color;
+  border-bottom: 2px solid $primary-color;
+  border-right: 2px solid $primary-color;
   td{
     padding: $padding*0.5;
     border-top: 2px solid $primary-color;
-    border-left: 2px solid $highlight-color;
-    border-right: 2px solid $primary-color;
+    border-left: 2px solid $primary-color;
+    border-right: 2px solid $highlight-color;
     border-bottom: 2px solid $highlight-color;
     background-color: $topbar-font-color;
   }
