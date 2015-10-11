@@ -53,6 +53,6 @@ Template.lobby.events({
 });
 
 Template.lobby.rendered = function (event) {
-  var url = getAccessLink();
+
 };
 
