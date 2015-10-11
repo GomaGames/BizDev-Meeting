@@ -69,4 +69,5 @@ resetUserState = function resetUserState(){
 
   Session.set("gameID", null);
   Session.set("playerID", null);
+  Session.set("time", null);
 };

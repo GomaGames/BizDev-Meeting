@@ -7,6 +7,9 @@ Meteor.setInterval(function () {
 
 function getTimeRemaining(){
   var game = getCurrentGame();
+  if(!game){
+    return;
+  }
   var localEndTime = game.endTime - TimeSync.serverOffset();
   var timeRemaining = localEndTime - Session.get('time');
 
@@ -19,6 +22,7 @@ function getTimeRemaining(){
 
 Template.gameView.events({
   'click .btn-back': function () {
+    resetUserState();
     Session.set("currentView", "startMenu");
     return false;
   }
