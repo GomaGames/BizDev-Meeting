@@ -1,31 +1,69 @@
 @import "partials/reset";
 @import "partials/grid";
 
-body{
-  font-family: "Ubuntu Mono", "Helvetica Neue", sans-serif;
+// temp
+
+.temp{
+  background-color:pink;
+  border: 1px solid red;
 }
 
-.wrapper{
-  background-color: orange;
-}
+// colors
 
-/* Main UI */
-
+$html-color: #222;
 $primary-color: #000;
 $paragraph-color: #777;
+$death-color: #0002AA;
 $padding: 1.5rem;
 $padding-vertical: $padding*.75;
 $topbar-color: #00017F;
 $topbar-font-color: #FFF;
 $background-color: #CCC;
 
+/* Generic Styles */
+
+html, body{
+  height: 100%;
+  width: 100%;
+  font-family: "Ubuntu Mono", "Helvetica Neue", sans-serif;
+  background-color: $html-color;
+}
+
+.wrapper{
+  height: 100%;
+}
+
+$header-height: 135px;
+
+.main-content {
+  height: calc(100% - #{$header-height});
+}
+
 h1,h2,h3,h4,h5,h6,p,li{
   font-size: 1.2rem;
+  line-height: 1.4rem;
+  span{
+    font-weight: bold;
+    font-style: italic;
+  }
+}
+
+h1,h2,h3,h4,h5,h6{
+  + p{
+    margin-top: $padding/4;
+  }
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
 }
 
 p{
   color: $paragraph-color;
 }
+
+/* Top Bar */
 
 .topbar{
   padding: $padding-vertical $padding;
@@ -38,23 +76,91 @@ p{
 
   .btn-back{
     background-color: $background-color;
-    padding: 0 $padding/2;
-    line-height: 2.3rem;
+    padding: 0 .9rem .3rem;
     color: $primary-color;
     position: absolute;
     font-size: 1.5rem;
+    line-height: 1.5;
     top: $padding/5;
     right: $padding/4;
   }
 }
+
+/* Panel */
 
 .panel{
   background-color: $background-color;
   padding: $padding;
 }
 
+/* List of Users */
+
+ol{
+  padding-left: $padding*1.5;
+  margin-top: $padding/2;
+  li{
+    list-style-type: decimal;
+    line-height: 1.5;
+    // padding-left: $padding;
+    margin-bottom: $padding/4;
+    &.active{
+      font-weight: bold;
+      font-style: italic;
+
+      a{
+        font-style: normal;
+        font-weight: normal;
+        font-size: .9em;
+      }
+    }
+    a{
+      color: $paragraph-color;
+      display: inline-block;
+      font-size: 1.2em;
+      min-width: 2rem;
+      margin-left: -1rem;
+      padding-left: 1rem;
+    }
+  }
+}
+
+/* Form Elements */
+
+input, button, input[type="submit"]{
+  font-family: "Ubuntu Mono", "Helvetica Neue", sans-serif;
+}
+
 .button-block{
   width: 100%;
 }
 
+.action-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
 @import "tiles/tile";
+@import "tiles/button";
+
+/* Death */
+
+.death{
+  background-color: $death-color;
+  text-align: center;
+  padding: $padding*2;
+
+  h3{
+    color: $death-color;
+    background-color: $background-color;
+    padding: .1rem 0.75rem .4rem;
+    margin-bottom: $padding*1.5;
+    display: inline-block;
+  }
+  p{
+    color: $topbar-font-color;
+    margin-bottom: $padding*.75;
+    text-align: left;
+  }
+}

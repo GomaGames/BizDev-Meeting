@@ -1,6 +1,50 @@
 .tile {
-  display: block;
-  width: 50%;
-  float: left;
-  background: #b3b3b3;
+  @extend .column-2;
+  display: flex;
+  flex: 1;
+  position: relative;
+  width: 100%;
+  padding: 12px 10px 10px;
+  background: $background-color;
+  &:first-child {
+    padding-bottom: 5px;
+  }
+  .action-container--left & {
+    padding-right: 5px;
+  }
+  .action-container--right & {
+    padding-left: 5px;
+  }
 }
+
+.tile-outline {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #8c8c8c;
+}
+
+.tile__contain {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  padding: 10px;
+  &--wrap {
+    flex-wrap: wrap;
+  }
+  &--column {
+    flex-direction: column;
+  }
+}
+
+.tile__title {
+  position: absolute;
+  top: 2px;
+  left: 20px;
+  padding: 0 3px;
+  background: $background-color;
+  color: darken(#8c8c8c, 20%);
+  font-size: 1rem;
+}
+

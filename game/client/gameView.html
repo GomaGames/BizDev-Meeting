@@ -1,20 +1,32 @@
 <template name="gameView">
-  <h3>GAME VIEW</h3>
-  {{ timeRemaining }}
-  DEADLINE TIMER: {{ deadlineBar }} %
-  {{#if gameFinished }}DONE SON{{/if}}
-  PROGRESS: {{ getProgress }}
-  <button class="btn-back">RAGE QUIT</button>
-  <button id="btn-progression">EZ MODE PROGRESSION BUTTON</button>
 
-  <div class="assignment">
-    assignment
-    {{ getAssignment.text }}
+  <div class="topbar">
+    <h3>Meeting Room</h3>
+    <button class="btn-back">&times;</button>
   </div>
 
-  <div>
-    {{#each actionTiles}}
-      {{> Template.dynamic template=type}}
-    {{/each}}
+  <div class="panel">
+    <div class="status row">
+      DEADLINE TIMER: {{ timeRemaining }} {{ deadlineBar }} %
+      {{#if gameFinished }}DONE SON{{/if}}
+
+      PROGRESS: {{ getProgress }}%
+    </div>
+    <div class="progress-bar size-{{progressBar}}">
+      IM SUPPOSED TO BE A PROGRESS BAR.
+    </div>
+    <div class="assignment row">
+      assignment
+      {{ getAssignment.text }}
+    </div>
+    <div class="control-panel row">
+      {{#each actionTiles}}
+        {{> Template.dynamic template=type}}
+      {{/each}}
+    </div>
+    <div class="temp row">
+      <button id="btn-progression">EZ MODE PROGRESSION BUTTON</button>
+    </div>
   </div>
+
 </template>
