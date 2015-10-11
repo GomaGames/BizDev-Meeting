@@ -19,6 +19,7 @@ $topbar-font-color: #FFF;
 $background-color: #CCC;
 
 h1{
+  font-size: 2rem; // ?
 
 }
 
@@ -59,3 +60,5 @@ h3{
 .button-block{
   width: 100%;
 }
+
+@import "tiles/tile";

@@ -13,8 +13,11 @@ generateNewGame = function generateNewGame(){
   var game = {
     accessCode: generateAccessCode(),
     state: "waitingForPlayers",
-    lengthInMinutes: 0.1,
+    lengthInMinutes: 1,
     endTime: null,
+    startTime: null,
+    goal: null,
+    progress: 0,
     result: false
   };
 
@@ -79,6 +82,30 @@ resetUserState = function resetUserState(){
   Session.set("time", null);
 };
 
+getGameTimer = function getGameTimer(){
+  var game = getCurrentGame();
+  if(!game){
+    return;
+  }
+  var timeCount = Session.get('time') - TimeSync.serverOffset() - game.startTime;
+
+  if (timeCount < 0) {
+    timeCount = 0;
+  }
+
+  return timeCount;
+};
+
+getTotalTime = function getTotalTime(){
+  var game = getCurrentGame();
+  if(!game){
+    return;
+  }
+  var time = Session.get('time');
+  var localEndTime = game.endTime - game.startTime - TimeSync.serverOffset();
+  return localEndTime;
+};
+
 getTimeRemaining = function getTimeRemaining(){
   var game = getCurrentGame();
   if(!game){
@@ -92,4 +119,14 @@ getTimeRemaining = function getTimeRemaining(){
   }
 
   return timeRemaining;
+};
+
+setGameGoal = function setGameGoal(){
+  var game = getCurrentGame();
+  var players = Players.find({gameID : game._id}).fetch();
+
+  Games.update(game._id, { $set : { goal : players.reduce(function(p,c){
+    return p + Math.round( (Math.random() * 10) + 10 );
+  }, 0) }});
+
 };

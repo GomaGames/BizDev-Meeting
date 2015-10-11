@@ -19,7 +19,6 @@ Template.gameView.created = function( event ) {
   getRandomTiles(4, function(actionTiles){
     self.actionTiles.set(actionTiles);
   });
-
 };
 
 Template.gameView.rendered = function( event ) {
@@ -56,5 +55,16 @@ Template.gameView.helpers({
   },
   actionTiles: function() {
     return Template.instance().actionTiles.get();
+  },
+  deadlineBar: function () {
+    var deadlineBarValue = new ReactiveVar(0);
+    var currentTime = getGameTimer();
+    console.log('timer',currentTime);
+    var totalTime = getTotalTime();
+    console.log('totaltime',totalTime);
+    var progress = Math.floor((currentTime / totalTime) * 100);
+    console.log('percent progressed',progress);
+    deadlineBarValue.set(progress);
+    return deadlineBarValue.get();
   }
 });
