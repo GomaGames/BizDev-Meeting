@@ -14,9 +14,21 @@ function getActionTiles(cb){
 
 function getRandomTiles(amount){
   amount = amount || 1;
-  return new Array(amount).fill().map(function(c,i,a){
-    return allActionTiles[i]; // not random yet!
-  });
+  // make sure to not use tiles that are already used
+  var tiles = [];
+  var usedTiles = Players.find({gameID:getCurrentGame()._id}).fetch().reduce(function(usedTiles, player){
+    return usedTiles.concat(player.actionTiles);
+  }, []);
+
+  while(tiles.length < amount){
+    var randomTile = allActionTiles[ Math.floor(Math.random()*allActionTiles.length) ];
+    if( !usedTiles.filter(function(tile){ return tile.title === randomTile.title; }).length ){
+      usedTiles.push(randomTile);
+      tiles.push(randomTile);
+    }
+  }
+
+  return tiles;
 }
 
 
@@ -36,7 +48,7 @@ Template.gameView.created = function( event ) {
      Meteor.setTimeout(function(){
 
       // get first assignment
-      Players.update(player._id, { $set : { assignedInstruction : getRandomAssignment() } });
+      Players.update(player._id, { $set : { assignedInstruction : getRandomAssignment( player._id ) } });
 
     }, 2000);
 

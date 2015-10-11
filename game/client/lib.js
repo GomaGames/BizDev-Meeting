@@ -66,8 +66,16 @@ getCurrentPlayer = function getCurrentPlayer(){
   }
 };
 
+/*
 getCurrentGameAllTiles = function getCurrentGameAllTiles(){
   return Players.find({gameID : getCurrentGame()._id}).fetch().reduce(function(p,c){
+    return p.concat(c.actionTiles);
+  },[]);
+};
+*/
+
+getCurrentGameAllTilesExcept = function getCurrentGameAllNotMyTiles( playerID ){
+  return Players.find({gameID : getCurrentGame()._id, _id : { $ne : playerID }}).fetch().reduce(function(p,c){
     return p.concat(c.actionTiles);
   },[]);
 };
@@ -155,7 +163,7 @@ performAction = function performAction( label, title ) {
 
   if(playerHasInstruction){
     // tell the player with that instruction to get a new randomAssignment
-    Players.update(playerHasInstruction._id, { $set : { assignedInstruction : getRandomAssignment() } });
+    Players.update(playerHasInstruction._id, { $set : { assignedInstruction : getRandomAssignment( playerHasInstruction._id ) } });
 
     // increase progress
 
@@ -169,8 +177,8 @@ performAction = function performAction( label, title ) {
 /*
  * Get a random assignment using all the available tiles that are on peoples screen
  */
-getRandomAssignment = function getRandomAssignment(){
-  var gameTiles = getCurrentGameAllTiles();
+getRandomAssignment = function getRandomAssignment(playerID){
+  var gameTiles = getCurrentGameAllTilesExcept(playerID);
   var randomTile = gameTiles[ Math.floor( Math.random()*gameTiles.length ) ];
   var randomOption = randomTile.options[ Math.floor( Math.random()*randomTile.options.length ) ];
   return {
