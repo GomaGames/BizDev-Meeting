@@ -7,8 +7,7 @@
 .temp,
 .time-bar,
 .progress-bar,
-td h1,
-.game-flash-status{
+td h1{
   background-color:pink;
   border: 1px solid red;
 }
@@ -52,12 +51,21 @@ h1,h2,h3,h4,h5,h6,p,li{
   span{
     font-weight: bold;
     font-style: italic;
+    &.company{
+      // color: $topbar-color;
+      font-style: normal;
+      font-weight: normal;
+      margin-bottom: $padding/4;
+      display: block;
+      margin-bottom: $padding;
+      // font-size: 1.5rem;
+    }
   }
 }
 
 h1,h2,h3,h4,h5,h6{
   + p{
-    margin-top: $padding/4;
+    margin-top: $padding;
   }
 }
 
@@ -104,7 +112,7 @@ p{
 
 ol{
   padding-left: $padding*1.5;
-  margin-top: $padding/2;
+  margin-top: $padding;
   margin-bottom: $padding;
   li{
     list-style-type: decimal;
@@ -179,6 +187,11 @@ input[type="text"]{
   }
 }
 
+.game-flash-status{
+  color: $alert-color;
+  margin-top: $padding/4;
+}
+
 /* Assignment */
 
 .assignment-text{
@@ -199,6 +212,7 @@ input[type="text"]{
 
 @import "tiles/tile";
 @import "tiles/button";
+@import "tiles/slider";
 
 /* Death */
 
