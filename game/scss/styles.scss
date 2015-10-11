@@ -13,5 +13,12 @@ h1{
   font-size: 2rem;
 }
 
+.action-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 500px;
+}
+
 @import "tiles/tile";
 
