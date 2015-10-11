@@ -6,8 +6,6 @@
   width: 100%;
   padding: 12px 10px 10px;
   background: $background-color;
-  align-items: center;
-  justify-content: center;
   &:first-child {
     padding-bottom: 5px;
   }
@@ -19,12 +17,19 @@
   }
 }
 
+.tile-outline {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #8c8c8c;
+}
+
 .tile__contain {
   display: flex;
   flex: 1;
   width: 100%;
   padding: 10px;
-  border: 1px solid #8c8c8c;
   &--wrap {
     flex-wrap: wrap;
   }
@@ -42,3 +47,4 @@
   color: darken(#8c8c8c, 20%);
   font-size: 1rem;
 }
+
