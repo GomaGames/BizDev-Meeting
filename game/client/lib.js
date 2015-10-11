@@ -13,7 +13,7 @@ generateNewGame = function generateNewGame(){
   var game = {
     accessCode: generateAccessCode(),
     state: "waitingForPlayers",
-    lengthInMinutes: 1,
+    lengthInMinutes: 0.12,
     endTime: null,
     startTime: null,
     goal: null,
@@ -30,7 +30,8 @@ generateNewGame = function generateNewGame(){
 generateNewPlayer = function generateNewPlayer(game, name){
   var player = {
     gameID: game._id,
-    name: name
+    name: name,
+    actionTiles: []
   };
 
   var playerID = Players.insert(player);
@@ -64,9 +65,17 @@ getCurrentPlayer = function getCurrentPlayer(){
   }
 };
 
+getCurrentGameAllTiles = function getCurrentGameAllTiles(){
+  return Players.find({gameID : getCurrentGame()._id}).fetch().reduce(function(p,c){
+    return p.concat(c.actionTiles);
+  },[]);
+};
+
 getGameResult = function getGameResult() {
   var game = getCurrentGame();
-
+  if(!game){
+    return;
+  }
   return game.result;
 };
 
@@ -128,5 +137,16 @@ setGameGoal = function setGameGoal(){
   Games.update(game._id, { $set : { goal : players.reduce(function(p,c){
     return p + Math.round( (Math.random() * 10) + 10 );
   }, 0) }});
+};
 
+getProgress = function getProgress() {
+  var game = getCurrentGame();
+    if(!game){
+    return;
+  }
+  return game.progress;
+};
+
+gameOver = function gameOver() {
+  Session.set('currentView', 'gameOver');
 };

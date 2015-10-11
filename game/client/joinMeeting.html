@@ -1,25 +1,26 @@
 <template name="joinMeeting">
-  <h4>
+  <div class="topbar">
+    <h3>Attend a Meeting</h3>
+    <button class="btn-back">&times;</button>
+  </div>
+
+  <div class="panel">
     {{#if isLoading }}
       <span class="spinner"></span>
     {{else}}
-      Welcome to BizDev Meeting
     {{/if}}
-  </h4>
+    <form id="join-meeting" class="row">
+      <div>
+        <input autocorrect="off" autocapitalize="off" type="text" id="access-code" name="accessCode" placeholder='Access Code' class="column-4">
+        <input type="text" id="player-name" name="playerName" placeholder='Your Name...' class="column-4">
 
-  <hr>
+        {{> flashMessages}}
 
-  <form id="join-meeting">
-    <div>
-      <input autocorrect="off" autocapitalize="off" type="text" id="access-code" name="accessCode" placeholder='Meeting Room Code'>
-      <input type="text" id="player-name" name="playerName" placeholder='Your Name'>
-
-      {{> flashMessages}}
-
-      <div class="button-container">
-        <input type="submit" value='Join Meeting'>
-  <button class="btn-back">Cancel Meeting</button>
+        <div class="button-container column-4">
+          <input type="submit" value='Join Meeting' class="button button-block">
+        </div>
       </div>
-    </div>
-  </form>
+    </form>    
+  </div>
+
 </template>
