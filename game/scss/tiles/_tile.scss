@@ -1,15 +1,16 @@
 .tile {
   @extend .column-2;
-  display: block;
+  display: flex;
+  flex: 1;
   position: relative;
   padding: 15px 7px 7px;
-  float: left;
   background: #b3b3b3;
 }
 
 .tile__contain {
+  display: flex;
+  flex: 1;
   width: 100%;
-  height: 100%;
   padding: 7px;
   border: 1px solid #8c8c8c;
 }
