@@ -6,25 +6,25 @@
   </div>
 
   <div class="panel">
-    <div class="status">
+    <div class="status row">
       {{ timeRemaining }}
       DEADLINE TIMER: {{ deadlineBar }} %
       {{#if gameFinished }}DONE SON{{/if}}
 
       PROGRESS: {{ getProgress }}
     </div>
-    <div class="assignment">
+    <div class="assignment row">
       assignment
       {{ assignment.text }}
     </div>
-    <div class="control-panel">
+    <div class="control-panel row">
       {{#each actionTiles}}
         {{> Template.dynamic template=type}}
       {{/each}}
     </div>
-    <div class="temp">
+    <div class="temp row">
       <button id="btn-progression">EZ MODE PROGRESSION BUTTON</button>
     </div>
   </div>
-  
+
 </template>
