@@ -14,7 +14,7 @@ function getActionTiles(cb){
 
 function getRandomTiles(amount){
   amount = amount || 1;
-  new Array(amount).fill().map(function(c,i,a){
+  return new Array(amount).fill().map(function(c,i,a){
     return allActionTiles[i]; // not random yet!
   });
 }
@@ -38,18 +38,23 @@ Template.gameView.created = function( event ) {
   this.assignedAction = new ReactiveVar({ text : "waiting..." });
 
   getActionTiles(function(actionTiles){
-
     // get first set of action tiles
     self.actionTiles.set( getRandomTiles(4) );
     // report that to db
-    player.actionTiles = self.actionTiles.get();
+    Players.update(player._id, { $set : { actionTiles : self.actionTiles.get() } });
 
-    // get first assignment
-    self.assignedAction.set( getRandomAssignment() );
+    // need to wait for every player to update db with their actionTiles
+    Meteor.setTimeout(function(){
 
+      // get first assignment
+      self.assignedAction.set( getRandomAssignment() );
+
+    }, 2000);
   });
 
 };
+
+
 
 Template.gameView.rendered = function( event ) {
   var timeRemaining = getTimeRemaining();
