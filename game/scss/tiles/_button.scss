@@ -1,0 +1,13 @@
+.tile__button {
+  width: 100%;
+  padding: 15px;
+  .tile__contain--wrap & {
+    width: 50%;
+  }
+}
+
+button {
+  padding: 5px;
+  background: $background-color;
+  font-size: rem(14px);
+}
