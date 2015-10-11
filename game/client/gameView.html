@@ -7,15 +7,17 @@
 
   <div class="panel">
     <div class="status row">
-      {{ timeRemaining }}
-      DEADLINE TIMER: {{ deadlineBar }} %
+      DEADLINE TIMER: {{ timeRemaining }} {{ deadlineBar }} %
       {{#if gameFinished }}DONE SON{{/if}}
 
-      PROGRESS: {{ getProgress }}
+      PROGRESS: {{ getProgress }}%
+    </div>
+    <div class="progress-bar size-{{progressBar}}">
+      IM SUPPOSED TO BE A PROGRESS BAR.
     </div>
     <div class="assignment row">
       assignment
-      {{ assignment.text }}
+      {{ getAssignment.text }}
     </div>
     <div class="control-panel row">
       {{#each actionTiles}}

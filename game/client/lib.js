@@ -13,7 +13,7 @@ generateNewGame = function generateNewGame(){
   var game = {
     accessCode: generateAccessCode(),
     state: "waitingForPlayers",
-    lengthInMinutes: 0.12,
+    lengthInMinutes: 0.7,
     endTime: null,
     startTime: null,
     goal: null,
@@ -31,7 +31,8 @@ generateNewPlayer = function generateNewPlayer(game, name){
   var player = {
     gameID: game._id,
     name: name,
-    actionTiles: []
+    actionTiles: [],
+    assignedInstruction: null
   };
 
   var playerID = Players.insert(player);
@@ -139,14 +140,50 @@ setGameGoal = function setGameGoal(){
   }, 0) }});
 };
 
-getProgress = function getProgress() {
-  var game = getCurrentGame();
-    if(!game){
-    return;
-  }
-  return game.progress;
-};
-
 gameOver = function gameOver() {
   Session.set('currentView', 'gameOver');
+};
+
+performAction = function performAction( label, title ) {
+
+  // evaluate if progress was made
+  // does some player have this as instruction?
+  /*
+   * var validAction = Players.find({gameID : getCurrentGame()._id}).fetch().reduce(function(valid, player){
+    return valid || player.actionTiles.reduce(function(hasTile, tile){
+      return hasTile || ( tile.title === title && tile.correctOption === label);
+    },false);
+  },false);
+  */
+
+  var playerHasInstruction = Players.find({gameID : getCurrentGame()._id}).fetch().reduce(function(foundPlayer, player){
+    return foundPlayer || (player.assignedInstruction.title === title && player.assignedInstruction.correctOption === label ) ? player : false;
+  }, false);
+
+  if(playerHasInstruction){
+    // tell the player with that instruction to get a new randomAssignment
+    Players.update(playerHasInstruction._id, { $set : { assignedInstruction : getRandomAssignment() } });
+
+    // increase progress
+
+  }else{
+    // decrease progress?
+
+  }
+
+};
+
+/*
+ * Get a random assignment using all the available tiles that are on peoples screen
+ */
+getRandomAssignment = function getRandomAssignment(){
+  var gameTiles = getCurrentGameAllTiles();
+  var randomTile = gameTiles[ Math.floor( Math.random()*gameTiles.length ) ];
+  var randomOption = randomTile.options[ Math.floor( Math.random()*randomTile.options.length ) ];
+  console.log(randomTile, randomOption);
+  return {
+    title : randomTile.title,
+    text : randomTile.instruction.replace("[label]", randomOption.label),
+    correctOption : randomOption.label
+  };
 };

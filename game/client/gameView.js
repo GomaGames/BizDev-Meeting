@@ -19,23 +19,12 @@ function getRandomTiles(amount){
   });
 }
 
-/*
- * Get a random assignment using all the available tiles that are on peoples screen
- */
-function getRandomAssignment(){
-  var gameTiles = getCurrentGameAllTiles();
-  var randomTile = gameTiles[ Math.floor( Math.random()*gameTiles.length ) ];
-  var randomOption = randomTile.options[ Math.floor( Math.random()*randomTile.options.length ) ];
-  return {
-    text : randomTile.instruction.replace("[label]", randomOption.label)
-  };
-}
+
 
 Template.gameView.created = function( event ) {
   var player = getCurrentPlayer();
   var self = this;
   this.actionTiles = new ReactiveVar([]);
-  this.assignedAction = new ReactiveVar({ text : "waiting..." });
 
   getActionTiles(function(actionTiles){
     // get first set of action tiles
@@ -44,12 +33,13 @@ Template.gameView.created = function( event ) {
     Players.update(player._id, { $set : { actionTiles : self.actionTiles.get() } });
 
     // need to wait for every player to update db with their actionTiles
-    Meteor.setTimeout(function(){
+     Meteor.setTimeout(function(){
 
       // get first assignment
-      self.assignedAction.set( getRandomAssignment() );
+      Players.update(player._id, { $set : { assignedInstruction : getRandomAssignment() } });
 
     }, 2000);
+
   });
 
 };
@@ -87,7 +77,6 @@ Template.gameView.events({
   },
   'click #btn-progression': function () {
     var game = getCurrentGame();
-    console.log('goal',game.goal);
     Games.update(game._id, { $set: { progress: game.progress+1 }});
 
     return false;
@@ -121,5 +110,8 @@ Template.gameView.helpers({
   },
   getProgress: function() {
     return getProgress();
+  },
+  getAssignment: function() {
+    return getCurrentPlayer().assignedInstruction;
   }
 });

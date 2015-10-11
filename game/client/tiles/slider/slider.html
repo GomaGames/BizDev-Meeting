@@ -1,3 +1,10 @@
 <template name="slider">
-  <h4 class="tile__title">Slider</h4>
+  <div class="tile tile-slider">
+  <h3>{{ title  }}</h3>
+  {{#each options}}
+
+  <button class="action" data-action="{{label}}">{{label}}</button>
+
+  {{/each}}
+  </div>
 </template>
