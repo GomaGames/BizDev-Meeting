@@ -94,8 +94,13 @@ Template.gameView.helpers({
 
     return timeRemaining === 0;
   },
-  actionTiles: function() {
-    return Template.instance().actionTiles.get();
+  actionTilesLeft: function() {
+    var tiles = Template.instance().actionTiles.get();
+    return tiles.slice(0, (tiles.length + 1) / 2);
+  },
+  actionTilesRight: function() {
+    var tiles = Template.instance().actionTiles.get();
+    return tiles.slice((tiles.length + 1) / 2);
   },
   getAssignment: function() {
     return getCurrentPlayer().assignedInstruction;

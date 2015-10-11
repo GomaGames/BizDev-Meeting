@@ -20,9 +20,16 @@
       {{ getAssignment.text }}
     </div>
     <div class="control-panel row">
-      {{#each actionTiles}}
+      <div class="action-container action-container--left column-2">
+      {{#each actionTilesLeft}}
         {{> Template.dynamic template=type}}
       {{/each}}
+      </div>
+      <div class="action-container action-container--right column-2">
+      {{#each actionTilesRight}}
+        {{> Template.dynamic template=type}}
+      {{/each}}
+      </div>
     </div>
     <div class="temp row">
       <button id="btn-progression">EZ MODE PROGRESSION BUTTON</button>
