@@ -214,11 +214,10 @@ input[type="text"]{
 }
 
 
-
-@import "tiles/status";
-@import "tiles/tile";
-@import "tiles/button";
-@import "tiles/slider";
+@import "components/status";
+@import "components/tile";
+@import "components/button";
+@import "components/slider";
 
 /* Death */
 
