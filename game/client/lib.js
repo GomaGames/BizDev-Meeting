@@ -13,7 +13,7 @@ generateNewGame = function generateNewGame(){
   var game = {
     accessCode: generateAccessCode(),
     state: "waitingForPlayers",
-    lengthInMinutes: 0.7,
+    lengthInMinutes: 10.12,
     endTime: null,
     startTime: null,
     goal: null,
@@ -148,13 +148,6 @@ performAction = function performAction( label, title ) {
 
   // evaluate if progress was made
   // does some player have this as instruction?
-  /*
-   * var validAction = Players.find({gameID : getCurrentGame()._id}).fetch().reduce(function(valid, player){
-    return valid || player.actionTiles.reduce(function(hasTile, tile){
-      return hasTile || ( tile.title === title && tile.correctOption === label);
-    },false);
-  },false);
-  */
 
   var playerHasInstruction = Players.find({gameID : getCurrentGame()._id}).fetch().reduce(function(foundPlayer, player){
     return foundPlayer || (player.assignedInstruction.title === title && player.assignedInstruction.correctOption === label ) ? player : false;

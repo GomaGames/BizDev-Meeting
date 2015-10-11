@@ -97,8 +97,8 @@ Template.gameView.helpers({
   actionTiles: function() {
     return Template.instance().actionTiles.get();
   },
-  assignment: function() {
-    return Template.instance().assignedAction.get();
+  getAssignment: function() {
+    return getCurrentPlayer().assignedInstruction;
   },
   deadlineBar: function () {
     var deadlineBarValue = new ReactiveVar(0);
