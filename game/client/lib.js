@@ -171,6 +171,7 @@ performAction = function performAction( label, title ) {
 
   }else{
     // decrease progress?
+    Games.update( game._id, { $set : { progress : game.progress-1 } } );
 
   }
 
