@@ -12,23 +12,19 @@ body{
 /* Main UI */
 
 $primary-color: #000;
+$paragraph-color: #777;
 $padding: 1.5rem;
 $padding-vertical: $padding*.75;
 $topbar-color: #00017F;
 $topbar-font-color: #FFF;
 $background-color: #CCC;
 
-h1{
-  font-size: 2rem; // ?
-
-}
-
-h2{
-
-}
-
-h3{
+h1,h2,h3,h4,h5,h6,p,li{
   font-size: 1.2rem;
+}
+
+p{
+  color: $paragraph-color;
 }
 
 .topbar{
