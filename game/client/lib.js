@@ -7,24 +7,21 @@ generateAccessCode = function generateAccessCode(){
     }
 
     return code;
-}
+};
 
 generateNewGame = function generateNewGame(){
   var game = {
     accessCode: generateAccessCode(),
     state: "waitingForPlayers",
-    location: null,
-    lengthInMinutes: 8,
-    endTime: null,
-    paused: false,
-    pausedTime: null
+    lengthInMinutes: 0.1,
+    endTime: null
   };
 
   var gameID = Games.insert(game);
   game = Games.findOne(gameID);
 
   return game;
-}
+};
 
 generateNewPlayer = function generateNewPlayer(game, name){
   var player = {
@@ -38,7 +35,7 @@ generateNewPlayer = function generateNewPlayer(game, name){
   var playerID = Players.insert(player);
 
   return Players.findOne(playerID);
-}
+};
 
 leaveGame = function leaveGame () {
   var player = getCurrentPlayer();
@@ -47,7 +44,7 @@ leaveGame = function leaveGame () {
   Players.remove(player._id);
 
   Session.set("playerID", null);
-}
+};
 
 getCurrentGame = function getCurrentGame(){
   var gameID = Session.get("gameID");
@@ -55,7 +52,7 @@ getCurrentGame = function getCurrentGame(){
   if (gameID) {
     return Games.findOne(gameID);
   }
-}
+};
 
 getAccessLink = function getAccessLink(){
   var game = getCurrentGame();
@@ -65,7 +62,7 @@ getAccessLink = function getAccessLink(){
   }
 
   return Meteor.settings.public.url + game.accessCode + "/";
-}
+};
 
 getCurrentPlayer = function getCurrentPlayer(){
   var playerID = Session.get("playerID");
@@ -73,7 +70,7 @@ getCurrentPlayer = function getCurrentPlayer(){
   if (playerID) {
     return Players.findOne(playerID);
   }
-}
+};
 
 resetUserState = function resetUserState(){
   var player = getCurrentPlayer();
@@ -84,4 +81,14 @@ resetUserState = function resetUserState(){
 
   Session.set("gameID", null);
   Session.set("playerID", null);
-}
+};
+
+getGameTimer = function getGameTimer(){
+  var game = getCurrentGame();
+
+  if(!game) {
+    return;
+  }
+
+  return game.endTime;
+};
