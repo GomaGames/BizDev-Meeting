@@ -89,7 +89,7 @@ Template.gameView.events({
   },
   'click #btn-progression': function () {
     var game = getCurrentGame();
-    Games.update(game._id, { $set: { progress: game.progress+1 }});
+    Games.update(game._id, { $set: { progress: game.progress+3 }});
 
     return false;
   }

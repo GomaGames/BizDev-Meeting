@@ -458,22 +458,6 @@
     ]
   },
   {
-    "title": "ASDF",
-    "instruction": "[label].",
-    "type": "button",
-    "options": [
-      {
-        "label": "qqq"
-      },
-      {
-        "label": "www"
-      },
-      {
-        "label": "eee"
-      }
-    ]
-  },
-  {
     "title": "Interns",
     "instruction": "Hire [label] more interns!",
     "type": "slider",
@@ -589,7 +573,7 @@
   },
   {
     "title": "Webscale",
-    "instruction": "Make it more [label].",
+    "instruction": "Make it [label] Webscale.",
     "type": "button",
     "options": [
       {
@@ -728,7 +712,7 @@
   },
   {
     "title": "AGILE",
-    "instruction": "I think it's time for a ___.",
+    "instruction": "I think it's time for a [label].",
     "type": "slider",
     "options": [
       {
