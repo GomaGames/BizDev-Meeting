@@ -13,7 +13,7 @@ generateNewGame = function generateNewGame(){
   var game = {
     accessCode: generateAccessCode(),
     state: "waitingForPlayers",
-    lengthInMinutes: 0.05,
+    lengthInMinutes: 0.12,
     endTime: null,
     startTime: null,
     goal: null,
@@ -66,7 +66,9 @@ getCurrentPlayer = function getCurrentPlayer(){
 
 getGameResult = function getGameResult() {
   var game = getCurrentGame();
-
+  if(!game){
+    return;
+  }
   return game.result;
 };
 
@@ -132,6 +134,9 @@ setGameGoal = function setGameGoal(){
 
 getProgress = function getProgress() {
   var game = getCurrentGame();
+    if(!game){
+    return;
+  }
   return game.progress;
 };
 
