@@ -1,9 +1,24 @@
 <template name="gameOver">
-  <h3>GAME OVER</h3>
   {{#if gameResult }}
-  YOU WON!
+    <div class="topbar">
+      <h3>Congratulations!</h3>
+    </div>
+
+    <div class="panel">
+      Awesome You Win.
+      <button class="btn-back">BACK TO HOME</button>
+    </div>
   {{else}}
-  YOU LOSE!
+    <div class="death">
+      <h3>Meeting Room</h3>
+      <p>You missed the deadline.
+        <br />To continue:
+      </p>
+      <p>Press Enter to return to the Homescreen, or
+      </p>
+      <p>Press CTRL+ALT+DEL to restart the app. If you do this you will lose any unsaved information in this application.</p>
+      <p>Error: 2D : 2379 : DJ4862</p>
+      <p>Tap anywhere to continue_</p>
+    </div>
   {{/if}}
-  <button class="btn-back">BACK TO HOME</button>
 </template>
