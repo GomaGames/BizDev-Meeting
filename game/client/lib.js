@@ -16,6 +16,7 @@ generateNewGame = function generateNewGame(){
     lengthInMinutes: 0.1,
     endTime: null,
     goal: null,
+    progress: 0,
     result: false
   };
 
