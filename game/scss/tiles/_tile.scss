@@ -6,6 +6,8 @@
   width: 100%;
   padding: 12px 10px 10px;
   background: $background-color;
+  align-items: center;
+  justify-content: center;
   &:first-child {
     padding-bottom: 5px;
   }
@@ -23,6 +25,12 @@
   width: 100%;
   padding: 10px;
   border: 1px solid #8c8c8c;
+  &--wrap {
+    flex-wrap: wrap;
+  }
+  &--column {
+    flex-direction: column;
+  }
 }
 
 .tile__title {
