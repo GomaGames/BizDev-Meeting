@@ -110,6 +110,9 @@ Template.gameView.helpers({
   },
   getProgress: function() {
     var game = getCurrentGame();
+    if(!game){
+      return;
+    }
     var progress = game.progress;
     var goal = game.goal;
     var totalProgress = Math.floor( progress / goal * 100 );
@@ -117,6 +120,9 @@ Template.gameView.helpers({
   },
   progressBar: function() {
     var game = getCurrentGame();
+    if(!game){
+      return;
+    }
     var progress = game.progress;
     var goal = game.goal;
     var progressUnit = (20 / game.goal);
