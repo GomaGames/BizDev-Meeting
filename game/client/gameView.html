@@ -7,17 +7,33 @@
 
   <div class="panel">
     <div class="status row">
-      DEADLINE TIMER: {{ timeRemaining }} {{ deadlineBar }} %
-      {{#if gameFinished }}DONE SON{{/if}}
+      <div class="column-3">
+        <h5>Time Remaining: {{ timeRemaining }}</h5>
+        <div class="time-bar size-{{deadlineBar}}">
+          Manny's Time Bar {{ deadlineBar }} %
+        </div>
+      </div>
+      <div class="column-1">
+        <h5>Progress: {{ getProgress }}%</h5>
+        <div class="progress-bar size-{{progressBar}}">
+          Manny's Progress Bar {{ getProgress }}%
+        </div>
+      </div>
 
-      PROGRESS: {{ getProgress }}%
+
+      {{#if flashStatus}}
+        <span class="game-flash-status">{{flashStatus}}</span>
+      {{/if}}
+
+
     </div>
-    <div class="progress-bar size-{{progressBar}}">
-      IM SUPPOSED TO BE A PROGRESS BAR.
-    </div>
+
     <div class="assignment row">
-      assignment
-      {{ getAssignment.text }}
+      <div class="column-4 assignment-text">
+        <h2>
+          {{ getAssignment.text }}
+        </h2>
+      </div>
     </div>
     <div class="control-panel row">
       <div class="action-container action-container--left column-2">

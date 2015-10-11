@@ -19,15 +19,9 @@
       {{#each players }}
         <li class="{{#if isCurrent }}active{{/if}}">
           {{ name }}
-          {{#if isCurrent }}
-            <a href="#" class="btn-edit-player" data-player-id="{{ _id }}">
-              Edit
-            </a>
-          {{else}}
             <a href="#" class="btn-remove-player" data-player-id="{{ _id }}">
               &times;
             </a>
-          {{/if}}
         </li>
       {{/each}}
     </ol>
