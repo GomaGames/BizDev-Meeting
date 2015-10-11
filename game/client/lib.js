@@ -29,10 +29,7 @@ generateNewGame = function generateNewGame(){
 generateNewPlayer = function generateNewPlayer(game, name){
   var player = {
     gameID: game._id,
-    name: name,
-    role: null,
-    isSpy: false,
-    isFirstPlayer: false
+    name: name
   };
 
   var playerID = Players.insert(player);
@@ -47,6 +44,7 @@ leaveGame = function leaveGame () {
   Players.remove(player._id);
 
   Session.set("playerID", null);
+  Session.set("gameID", null);
 }
 
 getCurrentGame = function getCurrentGame(){
@@ -55,16 +53,6 @@ getCurrentGame = function getCurrentGame(){
   if (gameID) {
     return Games.findOne(gameID);
   }
-}
-
-getAccessLink = function getAccessLink(){
-  var game = getCurrentGame();
-
-  if (!game){
-    return;
-  }
-
-  return Meteor.settings.public.url + game.accessCode + "/";
 }
 
 getCurrentPlayer = function getCurrentPlayer(){
@@ -85,3 +73,4 @@ resetUserState = function resetUserState(){
   Session.set("gameID", null);
   Session.set("playerID", null);
 }
+
