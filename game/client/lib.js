@@ -18,7 +18,8 @@ generateNewGame = function generateNewGame(){
     startTime: null,
     goal: null,
     progress: 0,
-    result: false
+    result: false,
+    status: null
   };
 
   var gameID = Games.insert(game);
@@ -172,8 +173,7 @@ performAction = function performAction( label, title ) {
 
   }else{
     // decrease progress?
-    Games.update( game._id, { $set : { progress : game.progress-1 } } );
-
+    Games.update( game._id, { $set : { progress : game.progress-1, status : getCurrentPlayer().name + " added to the scope!" } } );
   }
 
 };

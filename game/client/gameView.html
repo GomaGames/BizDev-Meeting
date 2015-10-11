@@ -11,6 +11,10 @@
       {{#if gameFinished }}DONE SON{{/if}}
 
       PROGRESS: {{ getProgress }}%
+
+      {{#if flashStatus}}
+        <span class="game-flash-status">{{flashStatus}}</span>
+      {{/if}}
     </div>
     <div class="progress-bar size-{{progressBar}}">
       IM SUPPOSED TO BE A PROGRESS BAR.

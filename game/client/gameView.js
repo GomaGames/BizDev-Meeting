@@ -145,5 +145,8 @@ Template.gameView.helpers({
     var progressUnit = (20 / game.goal);
     var totalProgress = Math.floor(progressUnit * game.progress);
     return totalProgress;
+  },
+  flashStatus: function() {
+    return getCurrentGame().status;
   }
 });
