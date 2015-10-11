@@ -87,7 +87,6 @@ Template.gameView.events({
   },
   'click #btn-progression': function () {
     var game = getCurrentGame();
-    console.log('goal',game.goal);
     Games.update(game._id, { $set: { progress: game.progress+1 }});
 
     return false;
@@ -115,11 +114,30 @@ Template.gameView.helpers({
     var deadlineBarValue = new ReactiveVar(0);
     var currentTime = getGameTimer();
     var totalTime = getTotalTime();
-    var progress = Math.floor((currentTime / totalTime) * 100);
+    var progress = Math.floor(( currentTime / totalTime ) * 100 );
     deadlineBarValue.set(progress);
     return deadlineBarValue.get();
   },
   getProgress: function() {
-    return getProgress();
+    var game = getCurrentGame();
+    var progress = game.progress;
+    var goal = game.goal;
+    var totalProgress = Math.floor( progress / goal * 100 );
+    // var barUnit = 1/20;
+    // var progressUnit = (1 / game.goal) * 20;
+    // var totalProgress = (progress/goal) / barUnit;
+    // console.log('totalProgress',totalProgress);
+    // console.log('progressUnit',progressUnit);
+    return totalProgress;
+  },
+  progressBar: function() {
+    var game = getCurrentGame();
+    var progress = game.progress;
+    var goal = game.goal;
+    var progressUnit = (20 / game.goal);
+    var totalProgress = Math.floor(progressUnit * game.progress);
+    // console.log('progressUnit',progressUnit);
+    // console.log('totalProgress',totalProgress);
+    return totalProgress;
   }
 });
