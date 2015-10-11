@@ -53,7 +53,8 @@ generateNewGame = function generateNewGame(){
     goal: null,
     progress: 0,
     result: false,
-    status: null
+    status: null,
+    actionCounter: 0
   };
 
   var gameID = Games.insert(game);
@@ -203,11 +204,13 @@ performAction = function performAction( label, title ) {
 
     // increase progress
     game.progress++;
-    Games.update( game._id, { $set : { progress : game.progress, gameResult : game.progress >= game.goal } } );
+    game.actionCounter++;
+    Games.update( game._id, { $set : { progress : game.progress, gameResult : game.progress >= game.goal, actionCounter: game.actionCounter } } );
 
   }else{
     // decrease progress?
-    Games.update( game._id, { $set : { progress : game.progress-1, status : getCurrentPlayer().name + " added to the scope!" } } );
+    game.actionCounter++;
+    Games.update( game._id, { $set : { progress : game.progress-1, status : getCurrentPlayer().name + " added to the scope!", actionCounter: game.actionCounter } } );
   }
 
 };
