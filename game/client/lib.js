@@ -167,7 +167,8 @@ performAction = function performAction( label, title ) {
     Players.update(playerHasInstruction._id, { $set : { assignedInstruction : getRandomAssignment( playerHasInstruction._id ) } });
 
     // increase progress
-    Games.update( game._id, { $set : { progress : game.progress+1 } } );
+    game.progress++;
+    Games.update( game._id, { $set : { progress : game.progress, gameResult : game.progress >= game.goal } } );
 
   }else{
     // decrease progress?
