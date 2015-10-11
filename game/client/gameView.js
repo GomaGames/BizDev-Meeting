@@ -1,24 +1,19 @@
 Template.gameView.rendered = function( event ) {
+  var timeRemaining = getTimeRemaining();
+
+  Meteor.setTimeout(function () {
+    Session.set('currentView', 'gameOver');
+  }, timeRemaining + 100 );
 };
 
 Meteor.setInterval(function () {
   Session.set('time', new Date());
 }, 1000);
 
-function getTimeRemaining(){
-  var game = getCurrentGame();
-  var localEndTime = game.endTime - TimeSync.serverOffset();
-  var timeRemaining = localEndTime - Session.get('time');
-
-  if (timeRemaining < 0) {
-    timeRemaining = 0;
-  }
-
-  return timeRemaining;
-}
 
 Template.gameView.events({
   'click .btn-back': function () {
+    resetUserState();
     Session.set("currentView", "startMenu");
     return false;
   }
