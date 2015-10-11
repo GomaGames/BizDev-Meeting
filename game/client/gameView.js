@@ -94,11 +94,16 @@ Template.gameView.helpers({
 
     return timeRemaining === 0;
   },
-  actionTiles: function() {
-    return Template.instance().actionTiles.get();
+  actionTilesLeft: function() {
+    var tiles = Template.instance().actionTiles.get();
+    return tiles.slice(0, (tiles.length + 1) / 2);
   },
-  assignment: function() {
-    return Template.instance().assignedAction.get();
+  actionTilesRight: function() {
+    var tiles = Template.instance().actionTiles.get();
+    return tiles.slice((tiles.length + 1) / 2);
+  },
+  getAssignment: function() {
+    return getCurrentPlayer().assignedInstruction;
   },
   deadlineBar: function () {
     var deadlineBarValue = new ReactiveVar(0);
@@ -110,6 +115,9 @@ Template.gameView.helpers({
   },
   getProgress: function() {
     var game = getCurrentGame();
+    if(!game){
+      return;
+    }
     var progress = game.progress;
     var goal = game.goal;
     var totalProgress = Math.floor( progress / goal * 100 );
@@ -117,6 +125,9 @@ Template.gameView.helpers({
   },
   progressBar: function() {
     var game = getCurrentGame();
+    if(!game){
+      return;
+    }
     var progress = game.progress;
     var goal = game.goal;
     var progressUnit = (20 / game.goal);
