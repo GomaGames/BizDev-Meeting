@@ -1,12 +1,19 @@
 <template name="startMenu">
-  <div class="main-menu wrapper">
-    <h4>Welcome to BizDev Meeting</h4>
+  <div class="main-menu">
 
-    <hr>
+    <div class="topbar">
+        <h3>Welcome!</h3>
+    </div>
 
-    <div class="button-container row">
-      <button id="btn-new-meeting" class="column-1">Call Meeting</button>
-      <button id="btn-join-meeting" class="column-1">Join Meeting</button>
+    <div class="panel">
+      <div class="button-container row">
+        <div class="column-4">
+          <button id="btn-new-meeting" class="button button-block">Call Meeting</button>
+        </div>
+        <div class="column-4">
+          <button id="btn-join-meeting" class="button button-block">Join Meeting</button>
+        </div>
+      </div>
     </div>
 
   </div>

@@ -35,9 +35,11 @@ Template.lobby.events({
     var game = getCurrentGame();
     var players = Players.find({gameID: game._id});
     var localEndTime = moment().add(game.lengthInMinutes, 'minutes');
+    var localStartTime = TimeSync.serverTime(moment());
     var gameEndTime = TimeSync.serverTime(localEndTime);
 
-    Games.update(game._id, {$set: {state: 'inProgress', endTime: gameEndTime }});
+    Games.update(game._id, {$set: {state: 'inProgress', endTime: gameEndTime, startTime: localStartTime }});
+
     setGameGoal();
     Session.set('currentView', 'gameView');
   },
