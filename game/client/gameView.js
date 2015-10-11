@@ -1,24 +1,47 @@
-function getRandomTiles(amount, cb){
-  amount = amount || 1;
+var allActionTiles = null;
 
-  Meteor.call("getActionTiles",function(err, actionTiles){
-    cb(
-      new Array(amount).fill().map(function(c,i,a){
-        return actionTiles[i]; // not random yet!
-      })
-    );
+function getActionTiles(cb){
+  if( allActionTiles === null ){
+    Meteor.call("getActionTiles",function(err, result){
+      if(err) throw new Error("Error getting actionTiles: "+ err);
+      allActionTiles = result;
+      cb(allActionTiles);
+    });
+  }else{
+    cb(allActionTiles);
+  }
+}
+
+function getRandomTiles(amount){
+  amount = amount || 1;
+  new Array(amount).fill().map(function(c,i,a){
+    return allActionTiles[i]; // not random yet!
   });
 }
 
+function getRandomAssignment(){
+  var randomTile = allActionTiles[ Math.floor( Math.random()*allActionTiles.length ) ];
+  var randomOption = randomTile.options[ Math.floor( Math.random()*randomTile.options.length ) ];
+  return {
+    text : randomTile.instruction.replace("[label]", randomOption.label)
+  };
+}
 
 Template.gameView.created = function( event ) {
   var self = this;
-
   this.actionTiles = new ReactiveVar([]);
-  // get first set of action tiles
-  getRandomTiles(4, function(actionTiles){
-    self.actionTiles.set(actionTiles);
+  this.assignedAction = new ReactiveVar({ text : "waiting..." });
+
+  getActionTiles(function(actionTiles){
+
+    // get first set of action tiles
+    self.actionTiles.set( getRandomTiles(4) );
+
+    // get first assignment
+    self.assignedAction.set( getRandomAssignment() );
+
   });
+
 };
 
 Template.gameView.rendered = function( event ) {
@@ -55,5 +78,8 @@ Template.gameView.helpers({
   },
   actionTiles: function() {
     return Template.instance().actionTiles.get();
+  },
+  assignment: function() {
+    return Template.instance().assignedAction.get();
   }
 });

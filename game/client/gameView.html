@@ -4,6 +4,11 @@
   {{#if gameFinished }}DONE SON{{/if}}
   <button class="btn-back">RAGE QUIT</button>
 
+  <div class="assignment">
+    assignment
+    {{ assignment.text }}
+  </div>
+
   <div>
     {{#each actionTiles}}
       {{> Template.dynamic template=type}}
