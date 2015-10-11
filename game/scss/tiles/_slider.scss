@@ -6,7 +6,15 @@
   width: calc(100% - 12px);
   margin: 0 auto;
   option {
-    margin-top: 30px;
+    position: relative;
+    margin-top: 35px;
+    &:before {
+      position: absolute;
+      top: -15px;
+      left: 2px;
+      font-size: 10px;
+      content: '|';
+    }
   }
 }
 
