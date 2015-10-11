@@ -1,0 +1,28 @@
+.status {
+  h5 {
+    text-align: center;
+  }
+}
+
+progress[value] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 35px;
+  border: 0;
+}
+
+progress[value]::-webkit-progress-bar {
+  padding: 5px 4px 3px;
+  border-radius: 2px;
+  background-color: #eee;
+  box-shadow: inset 0 1px 0 2px rgba(0, 0, 0, 0.5);
+}
+
+progress[value]::-webkit-progress-value {
+  background: #0a126c;
+}
+
+.time-bar {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
