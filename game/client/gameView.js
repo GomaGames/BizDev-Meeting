@@ -1,3 +1,27 @@
+function getRandomTiles(amount, cb){
+  amount = amount || 1;
+
+  Meteor.call("getActionTiles",function(err, actionTiles){
+    cb(
+      new Array(amount).fill().map(function(c,i,a){
+        return actionTiles[i]; // not random yet!
+      })
+    );
+  });
+}
+
+
+Template.gameView.created = function( event ) {
+  var self = this;
+
+  this.actionTiles = new ReactiveVar([]);
+  // get first set of action tiles
+  getRandomTiles(4, function(actionTiles){
+    self.actionTiles.set(actionTiles);
+  });
+
+};
+
 Template.gameView.rendered = function( event ) {
   var timeRemaining = getTimeRemaining();
 
@@ -29,5 +53,8 @@ Template.gameView.helpers({
     var timeRemaining = getTimeRemaining();
 
     return timeRemaining === 0;
+  },
+  actionTiles: function() {
+    return Template.instance().actionTiles.get();
   }
 });
