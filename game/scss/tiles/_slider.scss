@@ -23,9 +23,10 @@
     position: relative;
     margin-top: 35px;
 
-    width: 25%; // kelli
+    width: 20%; // kelli
     white-space: pre-line; // kelli
     font-size: .75rem;  // kelli
+    word-wrap: break-word; // kelli
 
     &:before {
       position: absolute;
