@@ -3,7 +3,8 @@
   display: flex;
   flex: 1;
   position: relative;
-  padding: 15px 7px 7px;
+  width: 100%;
+  padding: 12px 10px 10px;
   background: #b3b3b3;
   &:first-child {
     padding-bottom: 5px;
@@ -20,13 +21,13 @@
   display: flex;
   flex: 1;
   width: 100%;
-  padding: 7px;
+  padding: 10px;
   border: 1px solid #8c8c8c;
 }
 
 .tile__title {
   position: absolute;
-  top: 7px;
+  top: 5px;
   left: 20px;
   padding: 0 3px;
   background: #b3b3b3;
