@@ -173,7 +173,6 @@ getRandomAssignment = function getRandomAssignment(){
   var gameTiles = getCurrentGameAllTiles();
   var randomTile = gameTiles[ Math.floor( Math.random()*gameTiles.length ) ];
   var randomOption = randomTile.options[ Math.floor( Math.random()*randomTile.options.length ) ];
-  console.log(randomTile, randomOption);
   return {
     title : randomTile.title,
     text : randomTile.instruction.replace("[label]", randomOption.label),
