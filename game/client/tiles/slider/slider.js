@@ -4,12 +4,9 @@ Template.slider.created = function() {
 };
 
 Template.slider.events({
-  'click .action': function() {
-    performAction( this.label, Template.parentData(2).data.title );
-  },
-  'change .range-slider': function(event) {
+  'click .range-slider': function(event) {
      var sliderValue = event.currentTarget.value;
-     Template.instance().sliderValue.set(Template.instance().options[sliderValue - 1].label);
+     performAction( Template.instance().options[sliderValue - 1].label, Template.parentData(2).data.title );
   }
 });
 

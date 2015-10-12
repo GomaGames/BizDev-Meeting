@@ -62,3 +62,11 @@ running any meteor commands such as `add` or `deploy`
 ```
 docker run -it --rm -v "$PWD":/app danieldent/meteor meteor [your command and arguments here]
 ```
+
+## Hackathon
+
+This game was submitted to the Meteor hackathon after 20 hours.
+
+The submitted version of this game can be played at [bizdev-20.meteor.com](http://bizdev-20.meteor.com)
+
+The source code can be found here: [GomaGames/BizDev-Meeting:submitted-20hrs](https://github.com/GomaGames/BizDev-Meeting/tree/submitted-20hrs)

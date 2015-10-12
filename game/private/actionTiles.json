@@ -25,7 +25,7 @@
   {
     "title": "Rounded Corners",
     "instruction": "Give it [label] rounded corners",
-    "type": "button",
+    "type": "slider",
     "options": [
       {
         "label": "1"
@@ -41,7 +41,7 @@
   {
     "title": "Distribution Strategy",
     "instruction": "Switch to [label] Distribution Strategy",
-    "type": "button",
+    "type": "slider",
     "options": [
       {
        "label": "B2B"
@@ -93,7 +93,7 @@
   {
     "title": "Logo",
     "instruction": "Make the logo [label].",
-    "type": "button",
+    "type": "slider",
     "options": [
       {
         "label": "Bigger"
@@ -147,7 +147,7 @@
   {
     "title": "Mobile",
     "instruction": "Make it [label].",
-    "type": "button",
+    "type": "slider",
     "options": [
       {
         "label": "Mobile-First"
@@ -202,7 +202,7 @@
   {
     "title": "Router",
     "instruction": "Turn [label] the router.",
-    "type": "button",
+    "type": "slider",
     "options": [
       {
         "label": "On"
@@ -260,7 +260,7 @@
   {
     "title": "Version Control",
     "instruction": "Go back to version [label].",
-    "type": "button",
+    "type": "slider",
     "options": [
       {
         "label": "1"
@@ -422,7 +422,7 @@
   {
     "title": "Investment",
     "instruction": "Get [label]K in investment!",
-    "type": "button",
+    "type": "slider",
     "options": [
       {
         "label": "10"
@@ -441,7 +441,7 @@
   {
     "title": "SEO",
     "instruction": "Add [label]% more SEO.",
-    "type": "button",
+    "type": "slider",
     "options": [
       {
         "label": "10"
@@ -479,7 +479,7 @@
   {
     "title": "CMS",
     "instruction": "Just use [label].",
-    "type": "button",
+    "type": "slider",
     "options": [
       {
         "label": "Wordpress"
@@ -554,8 +554,8 @@
   },
   {
     "title": "IE Version",
-    "instruction": "It has to work in [label].",
-    "type": "button",
+    "instruction": "It has to work in IE [label].",
+    "type": "slider",
     "options": [
       {
         "label": "1"
