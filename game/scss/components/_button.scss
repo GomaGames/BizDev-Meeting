@@ -1,14 +1,14 @@
 .tile__button {
   width: 100%;
-  padding: 15px;
+  padding: 10px 0;
   .tile__contain--wrap & {
-    $margin: 4px;
+    $margin: 2px;
     $width-offset: $margin * 2;
     width: calc(50% - #{$width-offset});
     margin: $margin;
   }
   .tile__contain--column & {
-    margin: 4px 0;
+    margin: 2px 0;
   }
 }
 

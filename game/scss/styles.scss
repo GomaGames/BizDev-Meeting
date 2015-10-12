@@ -89,12 +89,15 @@ p{
   }
 }
 
-/* Panel */
+/* Panel */  
 
 .panel{
   height: 100%;
   background-color: $background-color;
   padding: $padding;
+  &.panel-game{
+    padding: $padding/3 $padding/2 $padding/4;
+  }
 }
 
 .control-panel {
@@ -186,13 +189,36 @@ input[type="text"]{
   margin-top: $padding/4;
 }
 
+/* Progress */
+
+h5{
+  font-size: 1rem;
+  text-align: left;
+}
+
+.column-time-remaining{
+  width: 80%;
+  padding-right: 10px;
+}
+
+.column-progress{
+  width: 20%;
+
+  p{
+    margin-top: 10px;
+    text-align: center;
+    color: $topbar-color;
+  }
+}
+
+
 /* Assignment */
 
 .assignment-text{
   height: 5rem;
   padding: $padding*.75 $padding;
-  margin-bottom: $padding/2;
-  margin-top: $padding/2;
+  margin-bottom: .25rem;
+  margin-top: .5rem;
   box-shadow: inset 0px 1px 2px 1px rgba(0,0,0,0.75);
   background-color: $topbar-font-color;
 

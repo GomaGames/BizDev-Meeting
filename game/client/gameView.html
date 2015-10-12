@@ -5,17 +5,18 @@
     <button class="btn-back">&times;</button>
   </div>
 
-  <div class="panel">
+  <div class="panel panel-game">
     <div class="status row">
-      <div class="column-3">
+      <div class="column-time-remaining">
         <h5>Time Remaining: {{ timeRemaining }}</h5>
         <div class="time-bar">
           <progress max="100" value="{{deadlineBar}}">
           </progress>
         </div>
       </div>
-      <div class="column-1">
-        <h5>Progress: {{ getProgress }}%</h5>
+      <div class="column-progress">
+        <h5>Progress:</h5>
+        <p>{{ getProgress }}%</p>
         <!-- <div class="progress-bar size-{{progressBar}}">
           Manny's Progress Bar {{ getProgress }}%
         </div> -->
