@@ -1,6 +1,7 @@
 .tile__button {
   width: 100%;
   padding: 10px 0;
+  word-break: break-word;
   .tile__contain--wrap & {
     $margin: 2px;
     $width-offset: $margin * 2;
