@@ -180,7 +180,7 @@ setGameGoal = function setGameGoal(){
   var players = Players.find({gameID : game._id}).fetch();
 
   Games.update(game._id, { $set : { goal : players.reduce(function(p,c){
-    return p + Math.round( (Math.random() * 10) + 10 );
+    return p + Math.round( (Math.random() * SETTINGS.GAME_GOAL.MAX_PER_PLAYER) + SETTINGS.GAME_GOAL.MIN_PER_PLAYER );
   }, 0) }});
 };
 
